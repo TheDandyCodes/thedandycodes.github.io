@@ -30,7 +30,7 @@ profiles:
   - icon: brands/linkedin
     url: https://www.linkedin.com/in/ricardo-prieto-alvarez/
   - icon: brands/whatsapp
-  url: https://wa.me/+34649530513?text=Hello
+    url: https://wa.me/+34649530513?text=Hello
   # Link to a PDF of your resume/CV - upload it to `static/uploads/resume.pdf`
   - icon: academicons/cv
     url: uploads/CV_CRPA_22_05_2025.pdf
