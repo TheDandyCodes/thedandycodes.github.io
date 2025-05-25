@@ -24,9 +24,9 @@ organizations:
 # Social Networking
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
-  - icon: at-symbol
-    url: 'ricardoprietoaiml@gmail.com'
-    label: E-mail Me
+  # - icon: at-symbol
+  #   url: 'ricardoprietoaiml@gmail.com'
+  #   label: E-mail Me
   - icon: brands/linkedin
     url: https://www.linkedin.com/in/ricardo-prieto-alvarez/
   - icon: brands/whatsapp
