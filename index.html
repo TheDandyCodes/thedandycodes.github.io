@@ -127,23 +127,30 @@
   <div class="print-container max-w-[680px] mx-auto px-6 py-20 sm:py-32 flex flex-col gap-20 sm:gap-28">
 
     <!-- Hero / Header Section -->
-    <header class="print-section flex flex-col">
-      <div class="flex justify-between items-baseline mb-3">
-        <span class="font-mono text-xs font-bold text-neutral-400 tracking-wider">PORTFOLIO <span class="text-[#FF0000]">&bull;</span> RPA / 2026</span>
+    <header class="print-section grid grid-cols-1 sm:grid-cols-4 gap-y-6 sm:gap-x-8">
+      <div class="col-span-1 flex flex-col gap-3">
+        <!-- Profile Photo (Square crop, Grayscale, Swiss Style) -->
+        <div class="w-28 h-28 sm:w-full sm:h-auto aspect-square overflow-hidden bg-neutral-100 border border-neutral-200 select-none">
+          <img src="profile.jpg" alt="Ricardo Prieto Álvarez" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-100 ease-in-out">
+        </div>
+        <span class="font-mono text-[9px] font-bold text-neutral-400 tracking-wider uppercase">RPA <span class="text-[#FF0000] font-bold">/</span> 2026</span>
       </div>
-      <h1 class="print-hero-title text-4xl sm:text-[2.75rem] font-extrabold tracking-tight text-neutral-950 leading-[1.05] mb-4">
-        Ricardo Prieto Álvarez
-      </h1>
-      <p class="print-hero-subtitle text-base sm:text-[1.05rem] font-normal leading-relaxed text-neutral-750 max-w-[620px]">
-        AI Engineer & Data Scientist based in Madrid, Spain. Specialized in designing, deploying, and optimizing agentic systems, LLMs, and RAG architectures.
-      </p>
       
-      <!-- Contact Links -->
-      <div class="print-links flex flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-neutral-500 font-medium">
-        <a href="mailto:ricardoprietoaiml@gmail.com" class="swiss-link">Email: ricardoprietoaiml@gmail.com</a>
-        <a href="https://www.linkedin.com/in/ricardo-prieto-alvarez" target="_blank" rel="noopener noreferrer" class="swiss-link">LinkedIn</a>
-        <a href="https://github.com/ricardoprieto" target="_blank" rel="noopener noreferrer" class="swiss-link">GitHub</a>
-        <a href="tel:+34649530513" class="swiss-link">Phone: +34 649 53 05 13</a>
+      <div class="col-span-3 flex flex-col justify-end">
+        <h1 class="print-hero-title text-4xl sm:text-[2.75rem] font-extrabold tracking-tight text-neutral-950 leading-[1.05] mb-4">
+          Ricardo Prieto Álvarez
+        </h1>
+        <p class="print-hero-subtitle text-base sm:text-[1.05rem] font-normal leading-relaxed text-neutral-700 max-w-[500px]">
+          AI Engineer & Data Scientist based in Madrid, Spain. Specialized in designing, deploying, and optimizing agentic systems, LLMs, and RAG architectures.
+        </p>
+        
+        <!-- Contact Links -->
+        <div class="print-links flex flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-neutral-500 font-medium">
+          <a href="mailto:ricardoprietoaiml@gmail.com" class="swiss-link">Email: ricardoprietoaiml@gmail.com</a>
+          <a href="https://www.linkedin.com/in/ricardo-prieto-alvarez" target="_blank" rel="noopener noreferrer" class="swiss-link">LinkedIn</a>
+          <a href="https://github.com/ricardoprieto" target="_blank" rel="noopener noreferrer" class="swiss-link">GitHub</a>
+          <a href="tel:+34649530513" class="swiss-link">Phone: +34 649 53 05 13</a>
+        </div>
       </div>
     </header>
 
