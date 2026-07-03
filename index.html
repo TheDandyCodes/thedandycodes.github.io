@@ -9,17 +9,17 @@
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Google Fonts: Inter -->
+  <!-- Google Fonts: Instrument Sans (Neo-Grotesque Swiss Fallback) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;650;700;800&display=swap" rel="stylesheet">
   
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Inter', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+            sans: ['"Helvetica Neue"', 'Helvetica', '"Instrument Sans"', 'Arial', 'sans-serif'],
           },
         },
       },
@@ -28,8 +28,12 @@
   
   <style>
     /* Typographic enhancements for Swiss Design */
+    body {
+      letter-spacing: -0.015em;
+    }
     h1, h2, h3, h4 {
       text-wrap: balance;
+      letter-spacing: -0.035em;
     }
     p, li {
       text-wrap: pretty;
