@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-[#F9F9FB] text-neutral-800 antialiased selection:bg-neutral-200 selection:text-neutral-900">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ricardo Prieto Álvarez — AI Engineer & Data Scientist</title>
+  <meta name="description" content="Certified Google Cloud Professional Machine Learning Engineer. Specialized in agentic systems, LLMs, and RAG architectures. Based in Madrid, Spain.">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  
+  <style>
+    /* Typographic enhancements for Swiss Design */
+    h1, h2, h3, h4 {
+      text-wrap: balance;
+    }
+    p, li {
+      text-wrap: pretty;
+    }
+    
+    /* Clean text links with instant bottom-border shift on hover (100ms transition) */
+    .swiss-link {
+      position: relative;
+      text-decoration: none;
+      transition: color 100ms ease-in-out;
+    }
+    .swiss-link::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: -1px;
+      left: 0;
+      background-color: #D4D4D8; /* border-neutral-300 */
+      transition: background-color 100ms ease-in-out;
+    }
+    .swiss-link:hover {
+      color: #000000;
+    }
+    .swiss-link:hover::after {
+      background-color: #000000;
+    }
+    
+    /* Print optimizations to fit on a single 1-page PDF document */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 1.2cm 1.5cm;
+      }
+      body {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        font-size: 11px !important;
+        line-height: 1.4 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-container {
+        padding: 0 !important;
+        max-width: 100% !important;
+      }
+      .print-section {
+        margin-top: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+        break-inside: avoid;
+      }
+      .print-section-title {
+        margin-bottom: 0.5rem !important;
+        padding-bottom: 0.25rem !important;
+      }
+      .print-item {
+        margin-bottom: 0.75rem !important;
+        break-inside: avoid;
+      }
+      .print-bullet-list {
+        margin-top: 0.25rem !important;
+        gap: 0.125rem !important;
+      }
+      .print-bullet-list li {
+        font-size: 10.5px !important;
+        line-height: 1.35 !important;
+      }
+      .print-hero-title {
+        font-size: 2.2rem !important;
+        line-height: 1.1 !important;
+      }
+      .print-hero-subtitle {
+        font-size: 12px !important;
+        margin-top: 0.5rem !important;
+        line-height: 1.4 !important;
+      }
+      .print-links {
+        margin-top: 0.5rem !important;
+        gap: 1rem !important;
+      }
+      .swiss-link::after {
+        display: none !important;
+      }
+      .swiss-link {
+        text-decoration: underline !important;
+        color: #000000 !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-[#F9F9FB] text-neutral-800 selection:bg-neutral-200 selection:text-neutral-900 print:bg-white print:text-black">
+  <div class="print-container max-w-[680px] mx-auto px-6 py-20 sm:py-32 flex flex-col gap-16 sm:gap-24">
+    
+    <!-- Hero / Header Section -->
+    <header class="print-section flex flex-col">
+      <h1 class="print-hero-title text-4xl sm:text-[2.75rem] font-bold tracking-tight text-neutral-950 leading-[1.1] mb-4">
+        Ricardo Prieto Álvarez
+      </h1>
+      <p class="print-hero-subtitle text-base sm:text-[1.05rem] font-normal leading-relaxed text-neutral-700 max-w-[620px]">
+        AI Engineer & Data Scientist based in Madrid, Spain. Specialized in designing, deploying, and optimizing agentic systems, LLMs, and RAG architectures.
+      </p>
+      
+      <!-- Contact Links -->
+      <div class="print-links flex flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-neutral-500 font-medium">
+        <a href="mailto:ricardoprietoaiml@gmail.com" class="swiss-link">Email: ricardoprietoaiml@gmail.com</a>
+        <a href="https://www.linkedin.com/in/ricardo-prieto-alvarez" target="_blank" rel="noopener noreferrer" class="swiss-link">LinkedIn</a>
+        <a href="https://github.com/ricardoprieto" target="_blank" rel="noopener noreferrer" class="swiss-link">GitHub</a>
+        <a href="tel:+34649530513" class="swiss-link">Phone: +34 649 53 05 13</a>
+      </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="print-section flex flex-col gap-4">
+      <h2 class="print-section-title text-xs font-bold uppercase tracking-[0.2em] text-neutral-950 border-b border-neutral-200 pb-2">
+        About
+      </h2>
+      <p class="text-sm sm:text-[0.925rem] leading-relaxed text-neutral-700">
+        Certified Google Cloud Professional Machine Learning Engineer with a strong background in building production-ready Generative AI solutions. Experienced in the entire AI lifecycle—from data ingestion to the deployment, monitoring, and evaluation of intelligent agents. Experienced public speaker and instructor, regularly delivering AI training sessions and workshops tailored for both technical engineering teams and general business users. Pragmatic problem-solver and self-taught engineer combining technical depth in NLP with a proactive, solution-oriented approach.
+      </p>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="print-section flex flex-col gap-6">
+      <h2 class="print-section-title text-xs font-bold uppercase tracking-[0.2em] text-neutral-950 border-b border-neutral-200 pb-2">
+        Experience
+      </h2>
+      
+      <div class="flex flex-col gap-8">
+        <!-- dataguru.cloud -->
+        <div class="print-item flex flex-col gap-2">
+          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
+            <h3 class="text-sm sm:text-base font-bold text-neutral-950">
+              dataguru.cloud <span class="font-normal text-neutral-400">|</span> AI Engineer
+            </h3>
+            <span class="text-xs sm:text-sm font-medium text-neutral-500">Madrid, Spain • 08/2025 – Present</span>
+          </div>
+          <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-700 list-none pl-0">
+            <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-neutral-400">Design and development of Generative AI solutions using LLMs.</li>
+            <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-neutral-400">Implementation of RAG architectures and agent frameworks (ADK, A2A, LangChain, LlamaIndex).</li>
+            <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-neutral-400">Agent deployment, monitoring, and evaluation in Agent Engine and Cloud Run (GCP).</li>
+            <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-neutral-400">Building intelligent agents with advanced Prompt Engineering and deployment via scalable APIs.</li>
+          </ul>
+        </div>
+
+        <!-- Komorebi AI -->
+        <div class="print-item flex flex-col gap-2">
+          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
+            <h3 class="text-sm sm:text-base font-bold text-neutral-950">
+              Komorebi AI <span class="font-normal text-neutral-400">|</span> AI Engineer, Data Scientist
+            </h3>
+            <span class="text-xs sm:text-sm font-medium text-neutral-500">Madrid, Spain • 03/2024 – 08/2025</span>
+          </div>
+          <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-700 list-none pl-0">
+            <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-neutral-400">Designed and deployed scalable AI solutions, RAG pipelines, and automated grant proposal agents.</li>
+            <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-neutral-400">Built NLP workflows integrating OpenAI/Gemini APIs and custom Streamlit prototypes.</li>
+            <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-neutral-400">Implemented LLM monitoring using Langfuse and robust evaluation protocols via DeepEval.</li>
+            <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-neutral-400">Developed client analysis automation (multi-class classification) using TF-IDF, embeddings, and NER.</li>
+          </ul>
+        </div>
+
+        <!-- Management Solutions -->
+        <div class="print-item flex flex-col gap-2">
+          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
+            <h3 class="text-sm sm:text-base font-bold text-neutral-950">
+              Management Solutions <span class="font-normal text-neutral-400">|</span> Consultor Assistant 1 - Data Scientist
+            </h3>
+            <span class="text-xs sm:text-sm font-medium text-neutral-500">Madrid, Spain • 07/2023 – 03/2024</span>
+          </div>
+          <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-700 list-none pl-0">
+            <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-neutral-400">Developed tools for consumer credit profitability calculation and data mapping for bank migration.</li>
+          </ul>
+        </div>
+
+        <!-- MasOrange, UC3M -->
+        <div class="print-item flex flex-col gap-2">
+          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
+            <h3 class="text-sm sm:text-base font-bold text-neutral-950">
+              MasOrange, UC3M <span class="font-normal text-neutral-400">|</span> Machine Learning Researcher
+            </h3>
+            <span class="text-xs sm:text-sm font-medium text-neutral-500">Madrid, Spain • 09/2022 – 09/2023</span>
+          </div>
+          <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-700 list-none pl-0">
+            <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-neutral-400">Built predictive models (XGBoost, Random Forest, MLP) for customer churn prediction (AUC > 0.85).</li>
+            <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-neutral-400">Executed customer segmentation using unsupervised clustering (KMeans, DBSCAN, MCA).</li>
+          </ul>
+        </div>
+
+        <!-- Novartis -->
+        <div class="print-item flex flex-col gap-2">
+          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
+            <h3 class="text-sm sm:text-base font-bold text-neutral-950">
+              Novartis <span class="font-normal text-neutral-400">|</span> Chatbot Developer - Internship
+            </h3>
+            <span class="text-xs sm:text-sm font-medium text-neutral-500">Basel, Switzerland • 07/2018 – 08/2018</span>
+          </div>
+          <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-700 list-none pl-0">
+            <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-neutral-400">Developed a semantic search Q&A base and FAQ chatbot using Azure Bot Service for health authorities.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Credentials Section -->
+    <section class="print-section flex flex-col gap-6">
+      <h2 class="print-section-title text-xs font-bold uppercase tracking-[0.2em] text-neutral-950 border-b border-neutral-200 pb-2">
+        Education & Credentials
+      </h2>
+      
+      <div class="flex flex-col gap-6">
+        <ul class="flex flex-col gap-3 text-sm text-neutral-700 list-none pl-0">
+          <li class="flex items-start gap-4">
+            <span class="font-mono text-xs text-neutral-400 w-12 flex-shrink-0 pt-0.5">2024</span>
+            <div>
+              <span class="font-semibold text-neutral-950">M.Sc. in Artificial Intelligence Research</span>
+              <span class="text-neutral-500 font-normal"> — UNED</span>
+            </div>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="font-mono text-xs text-neutral-400 w-12 flex-shrink-0 pt-0.5">2023</span>
+            <div>
+              <span class="font-semibold text-neutral-950">B.Sc. in Computer Science & Engineering</span>
+              <span class="text-neutral-500 font-normal"> — UC3M</span>
+            </div>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="font-mono text-xs text-neutral-400 w-12 flex-shrink-0 pt-0.5">2023</span>
+            <div>
+              <span class="font-semibold text-neutral-950">B.Sc. in Business Administration & Management</span>
+              <span class="text-neutral-500 font-normal"> — UC3M</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="flex flex-col gap-2 pt-4 border-t border-dashed border-neutral-200">
+          <span class="text-xs font-bold uppercase tracking-wider text-neutral-900">Certifications</span>
+          <p class="text-sm leading-relaxed text-neutral-700">
+            Google Cloud Professional ML Engineer • Hugging Face AI Agents Fundamentals • DeepLearning.AI Hyperparameter Tuning & Structuring ML Problems • Bankinter Akademia AI
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="print-section flex flex-col gap-4">
+      <h2 class="print-section-title text-xs font-bold uppercase tracking-[0.2em] text-neutral-950 border-b border-neutral-200 pb-2">
+        Skills
+      </h2>
+      <p class="text-sm sm:text-[0.925rem] leading-relaxed text-neutral-700">
+        Python, LLMs (OpenAI, Gemini Enterprise, Anthropic), Google Cloud Agentic AI & RAG Ecosystem (Agent Platform, Agent Engine, Agent Runtime, ADK, A2A, Gemini, Cloud Run, BigQuery, GCS), Agent Frameworks (LangChain, LlamaIndex, LangGraph), NLP & Search (RAG, Embeddings, Semantic Search, TF-IDF, Text Classification, NER), Machine Learning (Scikit-Learn, TensorFlow, Keras, XGBoost, SHAP, Pandas), AI Ops & Observability (Langfuse, DeepEval, CI/CD, GitHub), Prototyping (Streamlit), AI Training & Enablement (Technical Workshops, General AI Literacy, Effective Technical Communication).
+      </p>
+    </section>
+
+    <!-- Footer / PDF Export -->
+    <footer class="no-print flex justify-between items-center text-xs text-neutral-400 border-t border-neutral-200 pt-8 mt-4 font-mono">
+      <span>© 2026 Ricardo Prieto Álvarez</span>
+      <button onclick="window.print()" class="text-neutral-500 hover:text-neutral-950 transition-colors duration-100 border-b border-neutral-300 hover:border-neutral-950 pb-0.5 focus:outline-none">
+        Print Portfolio / Save as PDF
+      </button>
+    </footer>
+    
+  </div>
+</body>
+</html>
