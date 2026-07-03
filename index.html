@@ -66,13 +66,14 @@
     @media print {
       @page {
         size: A4 portrait;
-        margin: 1.2cm 1.5cm;
+        margin: 0; /* Hides default browser header (date, title) and footer (URL) */
       }
       body {
         background-color: #ffffff !important;
         color: #000000 !important;
         font-size: 11px !important;
         line-height: 1.45 !important;
+        padding: 1.2cm 1.5cm !important; /* Restores standard A4 margins within body content */
       }
       .no-print {
         display: none !important;
@@ -163,11 +164,16 @@
           AI Engineer & Data Scientist based in Madrid, Spain. Specialized in designing, deploying, and optimizing agentic systems, LLMs, and RAG architectures.
         </p>
         
-        <!-- Contact Links -->
         <div class="print-links flex flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-neutral-500 font-medium">
           <a href="mailto:ricardoprietoaiml@gmail.com" class="swiss-link">Email: ricardoprietoaiml@gmail.com</a>
-          <a href="https://www.linkedin.com/in/ricardo-prieto-alvarez" target="_blank" rel="noopener noreferrer" class="swiss-link">LinkedIn</a>
-          <a href="https://github.com/ricardoprieto" target="_blank" rel="noopener noreferrer" class="swiss-link">GitHub</a>
+          <div>
+            <a href="https://www.linkedin.com/in/ricardo-prieto-alvarez" target="_blank" rel="noopener noreferrer" class="swiss-link">LinkedIn</a>
+            <span class="hidden print:inline font-mono text-[9px] text-neutral-400"> (linkedin.com/in/ricardo-prieto-alvarez)</span>
+          </div>
+          <div>
+            <a href="https://github.com/ricardoprieto" target="_blank" rel="noopener noreferrer" class="swiss-link">GitHub</a>
+            <span class="hidden print:inline font-mono text-[9px] text-neutral-400"> (github.com/ricardoprieto)</span>
+          </div>
           <a href="tel:+34649530513" class="swiss-link">Phone: +34 649 53 05 13</a>
         </div>
       </div>
@@ -351,7 +357,7 @@
         </div>
         
         <!-- Searchable keywords block (Re-styled as flat normal text in print for ATS) -->
-        <div class="p-4 bg-neutral-100/50 border border-neutral-200 font-mono text-[10px] text-neutral-500 leading-relaxed print:bg-transparent print:border-none print:p-0 print:font-sans print:text-neutral-700">
+        <div class="p-4 bg-neutral-100/50 border border-neutral-200 font-mono text-[10px] text-neutral-500 leading-relaxed mt-8 print:mt-6 print:bg-transparent print:border-none print:p-0 print:font-sans print:text-neutral-700">
           <span class="font-sans font-bold text-neutral-900 text-xs block mb-1">Search Index / Keywords:</span>
           Python, LLMs (OpenAI, Gemini Enterprise, Anthropic), Google Cloud Agentic AI & RAG Ecosystem (Agent Platform, Agent Engine, Agent Runtime, ADK, A2A, Gemini, Cloud Run, BigQuery, GCS), Agent Frameworks (LangChain, LlamaIndex, LangGraph), NLP & Search (RAG, Embeddings, Semantic Search, TF-IDF, Text Classification, NER), Machine Learning (Scikit-Learn, TensorFlow, Keras, XGBoost, SHAP, Pandas), AI Ops & Observability (Langfuse, DeepEval, CI/CD, GitHub), Prototyping (Streamlit), AI Training & Enablement (Technical Workshops, General AI Literacy, Effective Technical Communication).
         </div>
