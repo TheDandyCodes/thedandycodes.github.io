@@ -76,6 +76,8 @@
       .print-container {
         padding: 0 !important;
         max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 !important;
       }
       .grid {
         display: grid !important;
@@ -131,194 +133,345 @@
   </style>
 </head>
 <body class="bg-[#F9F9FB] text-neutral-800 selection:bg-neutral-200 selection:text-neutral-900 print:bg-white print:text-black">
-  <div class="print-container max-w-[680px] mx-auto px-6 py-20 sm:py-32 flex flex-col gap-12 sm:gap-20">
+
+  <div class="flex flex-col md:flex-row min-h-screen">
     
-    <!-- Hero / Header Section -->
-    <header class="print-section grid grid-cols-1 sm:grid-cols-4 gap-y-4 sm:gap-x-8">
-      <div class="col-span-1">
-        <span class="font-mono text-xs font-bold text-neutral-900 tracking-wider">RPA <span class="text-[#FF0000] font-bold">/</span> 2026</span>
-      </div>
-      <div class="col-span-3 flex flex-col">
-        <h1 class="print-hero-title text-4xl sm:text-[2.75rem] font-extrabold tracking-tight text-neutral-950 leading-[1.05] mb-4">
-          Ricardo Prieto Álvarez
-        </h1>
-        <p class="print-hero-subtitle text-base sm:text-[1.05rem] font-normal leading-relaxed text-neutral-700 max-w-[500px]">
-          AI Engineer & Data Scientist based in Madrid, Spain. Specialized in designing, deploying, and optimizing agentic systems, LLMs, and RAG architectures.
-        </p>
-        
-        <!-- Contact Links -->
-        <div class="print-links flex flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-neutral-500 font-medium">
-          <a href="mailto:ricardoprietoaiml@gmail.com" class="swiss-link">Email: ricardoprietoaiml@gmail.com</a>
-          <a href="https://www.linkedin.com/in/ricardo-prieto-alvarez" target="_blank" rel="noopener noreferrer" class="swiss-link">LinkedIn</a>
-          <a href="https://github.com/ricardoprieto" target="_blank" rel="noopener noreferrer" class="swiss-link">GitHub</a>
-          <a href="tel:+34649530513" class="swiss-link">Phone: +34 649 53 05 13</a>
+    <!-- LEFT PANEL: Static Swiss Poster Art Frame (Hidden on Print & Mobile) -->
+    <aside class="no-print hidden md:flex md:w-1/2 h-screen fixed left-0 top-0 bg-[#F4F4F6] border-r border-neutral-200 items-center justify-center p-8 select-none">
+      <div class="w-full h-full max-w-[420px] max-h-[720px] bg-white border border-neutral-200 p-6 flex flex-col justify-between shadow-sm">
+        <div class="w-full h-[88%] bg-neutral-50 overflow-hidden relative border border-neutral-100">
+          <img src="swiss_poster_art.jpg" alt="Swiss Modernist Geometric Art Poster" class="w-full h-full object-cover filter contrast-[1.05]">
+        </div>
+        <div class="flex justify-between items-baseline font-mono text-[9px] text-neutral-400 mt-4 tracking-wider">
+          <span>EXHIBITION DESIGN: RICARDO PRIETO ÁLVAREZ</span>
+          <span>POSTER NO. 01 / 2026</span>
         </div>
       </div>
-    </header>
-
-    <!-- About Section -->
-    <section class="print-section grid grid-cols-1 sm:grid-cols-4 gap-y-3 sm:gap-x-8 pt-8 border-t border-neutral-200">
-      <div class="col-span-1">
-        <h2 class="text-xs font-extrabold uppercase tracking-widest text-neutral-950">
-          01 <span class="text-[#FF0000] font-bold">/</span> ABOUT
-        </h2>
-      </div>
-      <div class="col-span-3">
-        <p class="text-sm sm:text-[0.925rem] leading-relaxed text-neutral-700">
-          Certified Google Cloud Professional Machine Learning Engineer with a strong background in building production-ready Generative AI solutions. Experienced in the entire AI lifecycle—from data ingestion to the deployment, monitoring, and evaluation of intelligent agents. Experienced public speaker and instructor, regularly delivering AI training sessions and workshops tailored for both technical engineering teams and general business users. Pragmatic problem-solver and self-taught engineer combining technical depth in NLP with a proactive, solution-oriented approach.
-        </p>
-      </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section class="print-section grid grid-cols-1 sm:grid-cols-4 gap-y-8 sm:gap-x-8 pt-8 border-t border-neutral-200">
-      <div class="col-span-1">
-        <h2 class="text-xs font-extrabold uppercase tracking-widest text-neutral-950">
-          02 <span class="text-[#FF0000] font-bold">/</span> EXPERIENCE
-        </h2>
-      </div>
-      <div class="col-span-3"></div> <!-- Spacing spacer for asymmetric row start -->
+    </aside>
+    
+    <!-- RIGHT PANEL: Scrollable Content (Takes 100% on Mobile / Print, 50% on Desktop) -->
+    <main class="print-container w-full md:w-1/2 md:ml-auto min-h-screen px-6 py-12 md:px-12 md:py-24 bg-[#F9F9FB] flex flex-col gap-12 sm:gap-20">
       
-      <!-- dataguru.cloud -->
-      <div class="col-span-1 font-mono text-xs text-neutral-400 pt-0.5 sm:text-left">
-        08/2025 — Present
-      </div>
-      <div class="print-item col-span-3 flex flex-col gap-2 pb-8 border-b border-neutral-100">
-        <div>
-          <h3 class="text-sm sm:text-base font-bold text-neutral-950 leading-tight">dataguru.cloud</h3>
-          <p class="text-xs sm:text-sm font-semibold text-neutral-500">AI Engineer <span class="font-normal text-neutral-300">•</span> Madrid, Spain</p>
-        </div>
-        <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-700 list-none pl-0">
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Design and development of Generative AI solutions using LLMs.</li>
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Implementation of RAG architectures and agent frameworks (ADK, A2A, LangChain, LlamaIndex).</li>
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Agent deployment, monitoring, and evaluation in Agent Engine and Cloud Run (GCP).</li>
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Building intelligent agents with advanced Prompt Engineering and deployment via scalable APIs.</li>
-        </ul>
+      <!-- Mobile Hero Image Banner (Visible only on Mobile, Hidden on Desktop & Print) -->
+      <div class="no-print block md:hidden w-full h-[320px] overflow-hidden border border-neutral-200 mb-6 bg-white p-3 shadow-sm">
+        <img src="swiss_poster_art.jpg" alt="Swiss Modernist Geometric Art Banner" class="w-full h-full object-cover">
       </div>
 
-      <!-- Komorebi AI -->
-      <div class="col-span-1 font-mono text-xs text-neutral-400 pt-0.5 sm:text-left">
-        03/2024 — 08/2025
-      </div>
-      <div class="print-item col-span-3 flex flex-col gap-2 pb-8 border-b border-neutral-100">
-        <div>
-          <h3 class="text-sm sm:text-base font-bold text-neutral-950 leading-tight">Komorebi AI</h3>
-          <p class="text-xs sm:text-sm font-semibold text-neutral-500">AI Engineer, Data Scientist <span class="font-normal text-neutral-300">•</span> Madrid, Spain</p>
+      <!-- Hero / Header Section -->
+      <header class="print-section grid grid-cols-1 sm:grid-cols-4 gap-y-4 sm:gap-x-8">
+        <div class="col-span-1">
+          <span class="font-mono text-xs font-bold text-neutral-900 tracking-wider">RPA <span class="text-[#FF0000] font-bold">/</span> 2026</span>
         </div>
-        <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-700 list-none pl-0">
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Designed and deployed scalable AI solutions, RAG pipelines, and automated grant proposal agents.</li>
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Built NLP workflows integrating OpenAI/Gemini APIs and custom Streamlit prototypes.</li>
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Implemented LLM monitoring using Langfuse and robust evaluation protocols via DeepEval.</li>
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Developed client analysis automation (multi-class classification) using TF-IDF, embeddings, and NER.</li>
-        </ul>
-      </div>
-
-      <!-- Management Solutions -->
-      <div class="col-span-1 font-mono text-xs text-neutral-400 pt-0.5 sm:text-left">
-        07/2023 — 03/2024
-      </div>
-      <div class="print-item col-span-3 flex flex-col gap-2 pb-8 border-b border-neutral-100">
-        <div>
-          <h3 class="text-sm sm:text-base font-bold text-neutral-950 leading-tight">Management Solutions</h3>
-          <p class="text-xs sm:text-sm font-semibold text-neutral-500">Consultor Assistant 1 - Data Scientist <span class="font-normal text-neutral-300">•</span> Madrid, Spain</p>
-        </div>
-        <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-700 list-none pl-0">
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Developed tools for consumer credit profitability calculation and data mapping for bank migration.</li>
-        </ul>
-      </div>
-
-      <!-- MasOrange, UC3M -->
-      <div class="col-span-1 font-mono text-xs text-neutral-400 pt-0.5 sm:text-left">
-        09/2022 — 09/2023
-      </div>
-      <div class="print-item col-span-3 flex flex-col gap-2 pb-8 border-b border-neutral-100">
-        <div>
-          <h3 class="text-sm sm:text-base font-bold text-neutral-950 leading-tight">MasOrange, UC3M</h3>
-          <p class="text-xs sm:text-sm font-semibold text-neutral-500">Machine Learning Researcher <span class="font-normal text-neutral-300">•</span> Madrid, Spain</p>
-        </div>
-        <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-700 list-none pl-0">
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Built predictive models (XGBoost, Random Forest, MLP) for customer churn prediction (AUC > 0.85).</li>
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Executed customer segmentation using unsupervised clustering (KMeans, DBSCAN, MCA).</li>
-        </ul>
-      </div>
-
-      <!-- Novartis -->
-      <div class="col-span-1 font-mono text-xs text-neutral-400 pt-0.5 sm:text-left">
-        07/2018 — 08/2018
-      </div>
-      <div class="print-item col-span-3 flex flex-col gap-2">
-        <div>
-          <h3 class="text-sm sm:text-base font-bold text-neutral-950 leading-tight">Novartis</h3>
-          <p class="text-xs sm:text-sm font-semibold text-neutral-500">Chatbot Developer - Internship <span class="font-normal text-neutral-300">•</span> Basel, Switzerland</p>
-        </div>
-        <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-700 list-none pl-0">
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Developed a semantic search Q&A base and FAQ chatbot using Azure Bot Service for health authorities.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Education & Credentials Section -->
-    <section class="print-section grid grid-cols-1 sm:grid-cols-4 gap-y-6 sm:gap-x-8 pt-8 border-t border-neutral-200">
-      <div class="col-span-1">
-        <h2 class="text-xs font-extrabold uppercase tracking-widest text-neutral-950">
-          03 <span class="text-[#FF0000] font-bold">/</span> EDUCATION & CREDENTIALS
-        </h2>
-      </div>
-      <div class="col-span-3 flex flex-col gap-6">
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-y-4 sm:gap-y-3">
-          <!-- 2024 -->
-          <div class="col-span-1 font-mono text-xs text-neutral-400 sm:text-left pt-0.5">2024</div>
-          <div class="col-span-2 text-sm text-neutral-700 pb-2 border-b border-neutral-100 sm:border-0 sm:pb-0">
-            <span class="font-semibold text-neutral-950">M.Sc. in Artificial Intelligence Research</span><br>
-            <span class="text-neutral-500 text-xs">UNED</span>
-          </div>
+        <div class="col-span-3 flex flex-col">
+          <h1 class="print-hero-title text-4xl sm:text-[2.75rem] font-extrabold tracking-tight text-neutral-950 leading-[1.05] mb-4">
+            Ricardo Prieto Álvarez
+          </h1>
+          <p class="print-hero-subtitle text-base sm:text-[1.05rem] font-normal leading-relaxed text-neutral-700 max-w-[500px]">
+            AI Engineer & Data Scientist based in Madrid, Spain. Specialized in designing, deploying, and optimizing agentic systems, LLMs, and RAG architectures.
+          </p>
           
-          <!-- 2023 CS -->
-          <div class="col-span-1 font-mono text-xs text-neutral-400 sm:text-left pt-0.5">2023</div>
-          <div class="col-span-2 text-sm text-neutral-700 pb-2 border-b border-neutral-100 sm:border-0 sm:pb-0">
-            <span class="font-semibold text-neutral-950">B.Sc. in Computer Science & Engineering</span><br>
-            <span class="text-neutral-500 text-xs">UC3M</span>
-          </div>
-          
-          <!-- 2023 Business -->
-          <div class="col-span-1 font-mono text-xs text-neutral-400 sm:text-left pt-0.5">2023</div>
-          <div class="col-span-2 text-sm text-neutral-700">
-            <span class="font-semibold text-neutral-950">B.Sc. in Business Administration & Management</span><br>
-            <span class="text-neutral-500 text-xs">UC3M</span>
+          <!-- Contact Links -->
+          <div class="print-links flex flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-neutral-500 font-medium">
+            <a href="mailto:ricardoprietoaiml@gmail.com" class="swiss-link">Email: ricardoprietoaiml@gmail.com</a>
+            <a href="https://www.linkedin.com/in/ricardo-prieto-alvarez" target="_blank" rel="noopener noreferrer" class="swiss-link">LinkedIn</a>
+            <a href="https://github.com/ricardoprieto" target="_blank" rel="noopener noreferrer" class="swiss-link">GitHub</a>
+            <a href="tel:+34649530513" class="swiss-link">Phone: +34 649 53 05 13</a>
           </div>
         </div>
+      </header>
 
-        <div class="flex flex-col gap-2 pt-6 border-t border-dashed border-neutral-200">
-          <span class="text-xs font-bold uppercase tracking-wider text-neutral-900">Certifications</span>
-          <p class="text-sm leading-relaxed text-neutral-700">
-            Google Cloud Professional ML Engineer &bull; Hugging Face AI Agents Fundamentals &bull; DeepLearning.AI Hyperparameter Tuning & Structuring ML Problems &bull; Bankinter Akademia AI
+      <!-- About Section -->
+      <section class="print-section grid grid-cols-1 sm:grid-cols-4 gap-y-3 sm:gap-x-8 pt-8 border-t border-neutral-200">
+        <div class="col-span-1">
+          <h2 class="text-xs font-extrabold uppercase tracking-widest text-neutral-950">
+            01 <span class="text-[#FF0000] font-bold">/</span> ABOUT
+          </h2>
+        </div>
+        <div class="col-span-3">
+          <p class="text-sm sm:text-[0.925rem] leading-relaxed text-neutral-700">
+            Certified Google Cloud Professional Machine Learning Engineer with a strong background in building production-ready Generative AI solutions. Experienced in the entire AI lifecycle—from data ingestion to the deployment, monitoring, and evaluation of intelligent agents. Experienced public speaker and instructor, regularly delivering AI training sessions and workshops tailored for both technical engineering teams and general business users. Pragmatic problem-solver and self-taught engineer combining technical depth in NLP with a proactive, solution-oriented approach.
           </p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Skills Section -->
-    <section class="print-section grid grid-cols-1 sm:grid-cols-4 gap-y-3 sm:gap-x-8 pt-8 border-t border-neutral-200">
-      <div class="col-span-1">
-        <h2 class="text-xs font-extrabold uppercase tracking-widest text-neutral-950">
-          04 <span class="text-[#FF0000] font-bold">/</span> SKILLS
-        </h2>
-      </div>
-      <div class="col-span-3">
-        <p class="text-sm sm:text-[0.925rem] leading-relaxed text-neutral-700">
-          Python, LLMs (OpenAI, Gemini Enterprise, Anthropic), Google Cloud Agentic AI & RAG Ecosystem (Agent Platform, Agent Engine, Agent Runtime, ADK, A2A, Gemini, Cloud Run, BigQuery, GCS), Agent Frameworks (LangChain, LlamaIndex, LangGraph), NLP & Search (RAG, Embeddings, Semantic Search, TF-IDF, Text Classification, NER), Machine Learning (Scikit-Learn, TensorFlow, Keras, XGBoost, SHAP, Pandas), AI Ops & Observability (Langfuse, DeepEval, CI/CD, GitHub), Prototyping (Streamlit), AI Training & Enablement (Technical Workshops, General AI Literacy, Effective Technical Communication).
-        </p>
-      </div>
-    </section>
+      <!-- Experience Section -->
+      <section class="print-section grid grid-cols-1 sm:grid-cols-4 gap-y-8 sm:gap-x-8 pt-8 border-t border-neutral-200">
+        <div class="col-span-1">
+          <h2 class="text-xs font-extrabold uppercase tracking-widest text-neutral-950">
+            02 <span class="text-[#FF0000] font-bold">/</span> EXPERIENCE
+          </h2>
+        </div>
+        <div class="col-span-3"></div>
+        
+        <!-- dataguru.cloud -->
+        <div class="col-span-1 font-mono text-xs text-neutral-400 pt-0.5 sm:text-left">
+          08/2025 — Present
+        </div>
+        <div class="print-item col-span-3 flex flex-col gap-2 pb-8 border-b border-neutral-100">
+          <div>
+            <h3 class="text-sm sm:text-base font-bold text-neutral-950 leading-tight">dataguru.cloud</h3>
+            <p class="text-xs sm:text-sm font-semibold text-neutral-500">AI Engineer <span class="font-normal text-neutral-300">•</span> Madrid, Spain</p>
+          </div>
+          <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-700 list-none pl-0">
+            <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Design and development of Generative AI solutions using LLMs.</li>
+            <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Implementation of RAG architectures and agent frameworks (ADK, A2A, LangChain, LlamaIndex).</li>
+            <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Agent deployment, monitoring, and evaluation in Agent Engine and Cloud Run (GCP).</li>
+            <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Building intelligent agents with advanced Prompt Engineering and deployment via scalable APIs.</li>
+          </ul>
+        </div>
 
-    <!-- Footer / PDF Export -->
-    <footer class="no-print flex justify-between items-center text-xs text-neutral-400 border-t border-neutral-200 pt-8 mt-4 font-mono">
-      <span>© 2026 Ricardo Prieto Álvarez</span>
-      <button id="print-btn" onclick="window.print()" class="text-neutral-500 hover:text-neutral-950 transition-colors duration-100 border-b border-neutral-300 hover:border-neutral-950 pb-0.5 focus:outline-none">
-        Print Portfolio / Save as PDF
-      </button>
-    </footer>
-    
+        <!-- Komorebi AI -->
+        <div class="col-span-1 font-mono text-xs text-neutral-400 pt-0.5 sm:text-left">
+          03/2024 — 08/2025
+        </div>
+        <div class="print-item col-span-3 flex flex-col gap-2 pb-8 border-b border-neutral-100">
+          <div>
+            <h3 class="text-sm sm:text-base font-bold text-neutral-950 leading-tight">Komorebi AI</h3>
+            <p class="text-xs sm:text-sm font-semibold text-neutral-500">AI Engineer, Data Scientist <span class="font-normal text-neutral-300">•</span> Madrid, Spain</p>
+          </div>
+          <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-700 list-none pl-0">
+            <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Designed and deployed scalable AI solutions, RAG pipelines, and automated grant proposal agents.</li>
+            <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Built NLP workflows integrating OpenAI/Gemini APIs and custom Streamlit prototypes.</li>
+            <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Implemented LLM monitoring using Langfuse and robust evaluation protocols via DeepEval.</li>
+            <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Developed client analysis automation (multi-class classification) using TF-IDF, embeddings, and NER.</li>
+          </ul>
+        </div>
+
+        <!-- Management Solutions -->
+        <div class="col-span-1 font-mono text-xs text-neutral-400 pt-0.5 sm:text-left">
+          07/2023 — 03/2024
+        </div>
+        <div class="print-item col-span-3 flex flex-col gap-2 pb-8 border-b border-neutral-100">
+          <div>
+            <h3 class="text-sm sm:text-base font-bold text-neutral-950 leading-tight">Management Solutions</h3>
+            <p class="text-xs sm:text-sm font-semibold text-neutral-500">Consultor Assistant 1 - Data Scientist <span class="font-normal text-neutral-300">•</span> Madrid, Spain</p>
+          </div>
+          <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-700 list-none pl-0">
+            <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Developed tools for consumer credit profitability calculation and data mapping for bank migration.</li>
+          </ul>
+        </div>
+
+        <!-- MasOrange, UC3M -->
+        <div class="col-span-1 font-mono text-xs text-neutral-400 pt-0.5 sm:text-left">
+          09/2022 — 09/2023
+        </div>
+        <div class="print-item col-span-3 flex flex-col gap-2 pb-8 border-b border-neutral-100">
+          <div>
+            <h3 class="text-sm sm:text-base font-bold text-neutral-950 leading-tight">MasOrange, UC3M</h3>
+            <p class="text-xs sm:text-sm font-semibold text-neutral-500">Machine Learning Researcher <span class="font-normal text-neutral-300">•</span> Madrid, Spain</p>
+          </div>
+          <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-700 list-none pl-0">
+            <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Built predictive models (XGBoost, Random Forest, MLP) for customer churn prediction (AUC > 0.85).</li>
+            <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Executed customer segmentation using unsupervised clustering (KMeans, DBSCAN, MCA).</li>
+          </ul>
+        </div>
+
+        <!-- Novartis -->
+        <div class="col-span-1 font-mono text-xs text-neutral-400 pt-0.5 sm:text-left">
+          07/2018 — 08/2018
+        </div>
+        <div class="print-item col-span-3 flex flex-col gap-2">
+          <div>
+            <h3 class="text-sm sm:text-base font-bold text-neutral-950 leading-tight">Novartis</h3>
+            <p class="text-xs sm:text-sm font-semibold text-neutral-500">Chatbot Developer - Internship <span class="font-normal text-neutral-300">•</span> Basel, Switzerland</p>
+          </div>
+          <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-700 list-none pl-0">
+            <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Developed a semantic search Q&A base and FAQ chatbot using Azure Bot Service for health authorities.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Education & Credentials Section -->
+      <section class="print-section grid grid-cols-1 sm:grid-cols-4 gap-y-6 sm:gap-x-8 pt-8 border-t border-neutral-200">
+        <div class="col-span-1">
+          <h2 class="text-xs font-extrabold uppercase tracking-widest text-neutral-950">
+            03 <span class="text-[#FF0000] font-bold">/</span> EDUCATION
+          </h2>
+        </div>
+        <div class="col-span-3 flex flex-col gap-6">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-y-4 sm:gap-y-3">
+            <!-- 2024 -->
+            <div class="col-span-1 font-mono text-xs text-neutral-400 sm:text-left pt-0.5">2024</div>
+            <div class="col-span-2 text-sm text-neutral-700 pb-2 border-b border-neutral-100 sm:border-0 sm:pb-0">
+              <span class="font-semibold text-neutral-950">M.Sc. in Artificial Intelligence Research</span><br>
+              <span class="text-neutral-500 text-xs">UNED</span>
+            </div>
+            
+            <!-- 2023 CS -->
+            <div class="col-span-1 font-mono text-xs text-neutral-400 sm:text-left pt-0.5">2023</div>
+            <div class="col-span-2 text-sm text-neutral-700 pb-2 border-b border-neutral-100 sm:border-0 sm:pb-0">
+              <span class="font-semibold text-neutral-950">B.Sc. in Computer Science & Engineering</span><br>
+              <span class="text-neutral-500 text-xs">UC3M</span>
+            </div>
+            
+            <!-- 2023 Business -->
+            <div class="col-span-1 font-mono text-xs text-neutral-400 sm:text-left pt-0.5">2023</div>
+            <div class="col-span-2 text-sm text-neutral-700">
+              <span class="font-semibold text-neutral-950">B.Sc. in Business Administration & Management</span><br>
+              <span class="text-neutral-500 text-xs">UC3M</span>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-2 pt-6 border-t border-dashed border-neutral-200">
+            <span class="text-xs font-bold uppercase tracking-wider text-neutral-905">Certifications</span>
+            <p class="text-sm leading-relaxed text-neutral-700">
+              Google Cloud Professional ML Engineer &bull; Hugging Face AI Agents Fundamentals &bull; DeepLearning.AI Hyperparameter Tuning & Structuring ML Problems &bull; Bankinter Akademia AI
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section class="print-section grid grid-cols-1 sm:grid-cols-4 gap-y-6 sm:gap-x-8 pt-8 border-t border-neutral-200">
+        <div class="col-span-1">
+          <h2 class="text-xs font-extrabold uppercase tracking-widest text-neutral-950">
+            04 <span class="text-[#FF0000] font-bold">/</span> SKILLS
+          </h2>
+        </div>
+        
+        <div class="col-span-3 flex flex-col gap-8">
+          
+          <!-- Visual Skill Indicator Matrix (Hidden on print to preserve raw CV layout) -->
+          <div class="no-print flex flex-col gap-6">
+            <div class="grid grid-cols-1 gap-4">
+              
+              <!-- Category 1 -->
+              <div class="flex flex-col gap-1.5">
+                <span class="text-xs font-bold uppercase tracking-wide text-neutral-900">AI & Agentic Engineering</span>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1">
+                  <!-- Skill A -->
+                  <div class="flex items-center justify-between py-1 border-b border-neutral-100">
+                    <span class="font-mono text-xs text-neutral-700">Agentic Architectures</span>
+                    <div class="flex gap-0.5">
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-neutral-200"></div>
+                    </div>
+                  </div>
+                  <!-- Skill B -->
+                  <div class="flex items-center justify-between py-1 border-b border-neutral-100">
+                    <span class="font-mono text-xs text-neutral-700">LLM Deployment & RAG</span>
+                    <div class="flex gap-0.5">
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-neutral-200"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Category 2 -->
+              <div class="flex flex-col gap-1.5 mt-2">
+                <span class="text-xs font-bold uppercase tracking-wide text-neutral-900">Machine Learning & NLP</span>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1">
+                  <div class="flex items-center justify-between py-1 border-b border-neutral-100">
+                    <span class="font-mono text-xs text-neutral-700">Python Programming</span>
+                    <div class="flex gap-0.5">
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between py-1 border-b border-neutral-100">
+                    <span class="font-mono text-xs text-neutral-700">NLP & Search Systems</span>
+                    <div class="flex gap-0.5">
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-neutral-200"></div>
+                      <div class="w-2 h-2 bg-neutral-200"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Category 3 -->
+              <div class="flex flex-col gap-1.5 mt-2">
+                <span class="text-xs font-bold uppercase tracking-wide text-neutral-900">Ops & Infrastructure</span>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1">
+                  <div class="flex items-center justify-between py-1 border-b border-neutral-100">
+                    <span class="font-mono text-xs text-neutral-700">Google Cloud (GCP)</span>
+                    <div class="flex gap-0.5">
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-neutral-200"></div>
+                      <div class="w-2 h-2 bg-neutral-200"></div>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between py-1 border-b border-neutral-100">
+                    <span class="font-mono text-xs text-neutral-700">AI Ops & Observability</span>
+                    <div class="flex gap-0.5">
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-[#FF0000]"></div>
+                      <div class="w-2 h-2 bg-neutral-200"></div>
+                      <div class="w-2 h-2 bg-neutral-200"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          
+          <!-- Complete Searchable Keywords (Always visible for SEO, screen readers, and print) -->
+          <div class="flex flex-col gap-2">
+            <span class="no-print text-xs font-bold uppercase tracking-wider text-neutral-900">Keywords & Core Stack</span>
+            <p class="text-sm sm:text-[0.925rem] leading-relaxed text-neutral-700">
+              Python, LLMs (OpenAI, Gemini Enterprise, Anthropic), Google Cloud Agentic AI & RAG Ecosystem (Agent Platform, Agent Engine, Agent Runtime, ADK, A2A, Gemini, Cloud Run, BigQuery, GCS), Agent Frameworks (LangChain, LlamaIndex, LangGraph), NLP & Search (RAG, Embeddings, Semantic Search, TF-IDF, Text Classification, NER), Machine Learning (Scikit-Learn, TensorFlow, Keras, XGBoost, SHAP, Pandas), AI Ops & Observability (Langfuse, DeepEval, CI/CD, GitHub), Prototyping (Streamlit), AI Training & Enablement (Technical Workshops, General AI Literacy, Effective Technical Communication).
+            </p>
+          </div>
+          
+        </div>
+      </section>
+
+      <!-- Footer / PDF Export -->
+      <footer class="no-print flex justify-between items-center text-xs text-neutral-400 border-t border-neutral-200 pt-8 mt-4 font-mono">
+        <span>© 2026 Ricardo Prieto Álvarez</span>
+        <button id="print-btn" onclick="window.print()" class="text-neutral-500 hover:text-neutral-950 transition-colors duration-100 border-b border-neutral-300 hover:border-neutral-950 pb-0.5 focus:outline-none">
+          Print Portfolio / Save as PDF
+        </button>
+      </footer>
+      
+    </main>
   </div>
+  
 </body>
 </html>
