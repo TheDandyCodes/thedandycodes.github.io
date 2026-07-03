@@ -62,17 +62,17 @@
       background-color: #FF0000; /* Swiss Red accent */
     }
     
-    /* Print optimizations to fit on a single 1-page PDF document */
+    /* Print optimizations for 100% ATS (Applicant Tracking System) parser compatibility */
     @media print {
       @page {
         size: A4 portrait;
-        margin: 1cm 1.2cm;
+        margin: 1.2cm 1.5cm;
       }
       body {
         background-color: #ffffff !important;
         color: #000000 !important;
-        font-size: 10px !important;
-        line-height: 1.35 !important;
+        font-size: 11px !important;
+        line-height: 1.45 !important;
       }
       .no-print {
         display: none !important;
@@ -80,37 +80,52 @@
       .print-container {
         padding: 0 !important;
         max-width: 100% !important;
+        width: 100% !important;
+      }
+      /* Force single-column layout for ATS parser logical reading order */
+      .grid {
+        display: block !important;
+      }
+      .col-span-1, .col-span-2, .col-span-3, .col-span-4 {
+        width: 100% !important;
+        display: block !important;
+        margin: 0 0 0.5rem 0 !important;
+        padding: 0 !important;
+        border: none !important;
       }
       .print-section {
         margin-top: 1.25rem !important;
         padding-top: 0.75rem !important;
+        border-top: 1px solid #E5E7EB !important;
         break-inside: avoid;
       }
+      /* Remove timeline lines & padding in print for clean parsing */
       .print-item {
-        margin-bottom: 0.5rem !important;
-        padding-bottom: 0.5rem !important;
+        margin-bottom: 0.75rem !important;
+        padding-left: 0 !important;
+        border-left: none !important;
         break-inside: avoid;
       }
       .print-bullet-list {
-        margin-top: 0.15rem !important;
-        gap: 0.1rem !important;
+        margin-top: 0.25rem !important;
+        gap: 0.15rem !important;
       }
       .print-bullet-list li {
-        font-size: 9.5px !important;
-        line-height: 1.3 !important;
+        font-size: 10px !important;
+        line-height: 1.4 !important;
       }
       .print-hero-title {
         font-size: 2.2rem !important;
-        line-height: 1.05 !important;
+        line-height: 1.1 !important;
       }
       .print-hero-subtitle {
-        font-size: 11px !important;
-        margin-top: 0.35rem !important;
-        line-height: 1.35 !important;
+        font-size: 12px !important;
+        margin-top: 0.5rem !important;
+        line-height: 1.4 !important;
       }
       .print-links {
-        margin-top: 0.35rem !important;
-        gap: 0.75rem !important;
+        margin-top: 0.5rem !important;
+        gap: 1rem !important;
       }
       .swiss-link::after {
         display: none !important;
@@ -118,6 +133,10 @@
       .swiss-link {
         text-decoration: underline !important;
         color: #000000 !important;
+      }
+      /* Hide absolute elements (timeline nodes) to avoid parsing glitches */
+      .absolute {
+        display: none !important;
       }
     }
   </style>
@@ -129,11 +148,11 @@
     <!-- Hero / Header Section -->
     <header class="print-section grid grid-cols-1 sm:grid-cols-4 gap-y-6 sm:gap-x-8">
       <div class="col-span-1 flex flex-col gap-3">
-        <!-- Profile Photo (Square crop, Grayscale, Swiss Style) -->
-        <div class="w-28 h-28 sm:w-full sm:h-auto aspect-square overflow-hidden bg-neutral-100 border border-neutral-200 select-none group cursor-crosshair">
+        <!-- Profile Photo (Square crop, Grayscale, Swiss Style - Hidden on Print for ATS) -->
+        <div class="w-28 h-28 sm:w-full sm:h-auto aspect-square overflow-hidden bg-neutral-100 border border-neutral-200 select-none group cursor-crosshair print:hidden">
           <img src="profile.jpg" alt="Ricardo Prieto Álvarez" class="w-full h-full object-cover grayscale hover:grayscale-0 group-hover:scale-105 transition-all duration-300 ease-out">
         </div>
-        <span class="font-mono text-[9px] font-bold text-neutral-400 tracking-wider uppercase">RPA <span class="text-[#FF0000] font-bold">/</span> 2026</span>
+        <span class="font-mono text-[9px] font-bold text-neutral-400 tracking-wider uppercase print:hidden">RPA <span class="text-[#FF0000] font-bold">/</span> 2026</span>
       </div>
       
       <div class="col-span-3 flex flex-col justify-end">
@@ -158,7 +177,7 @@
     <section class="print-section grid grid-cols-1 sm:grid-cols-4 gap-y-4 sm:gap-x-8 pt-8 border-t border-neutral-200">
       <div class="col-span-1">
         <h2 class="text-xs font-extrabold uppercase tracking-widest text-neutral-950">
-          01 <span class="text-[#FF0000] font-bold">/</span> ABOUT
+          <span class="print:hidden">01 <span class="text-[#FF0000] font-bold">/</span> </span>ABOUT
         </h2>
       </div>
       <div class="col-span-3 flex flex-col gap-3">
@@ -175,7 +194,7 @@
     <section class="print-section grid grid-cols-1 sm:grid-cols-4 gap-y-8 sm:gap-x-8 pt-8 border-t border-neutral-200">
       <div class="col-span-1">
         <h2 class="text-xs font-extrabold uppercase tracking-widest text-neutral-950">
-          02 <span class="text-[#FF0000] font-bold">/</span> EXPERIENCE
+          <span class="print:hidden">02 <span class="text-[#FF0000] font-bold">/</span> </span>EXPERIENCE
         </h2>
       </div>
       <div class="col-span-3"></div> <!-- Alignment spacer -->
@@ -272,14 +291,14 @@
     <section class="print-section grid grid-cols-1 sm:grid-cols-4 gap-y-6 sm:gap-x-8 pt-8 border-t border-neutral-200">
       <div class="col-span-1">
         <h2 class="text-xs font-extrabold uppercase tracking-widest text-neutral-950">
-          03 <span class="text-[#FF0000] font-bold">/</span> SKILLS
+          <span class="print:hidden">03 <span class="text-[#FF0000] font-bold">/</span> </span>SKILLS
         </h2>
       </div>
       
       <div class="col-span-3 flex flex-col gap-6">
         
-        <!-- Modular Typographic Skills Cards (No Shadow, No border-radius, hover border effect) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Modular Typographic Skills Cards (Hidden on Print for ATS Parser Compatibility) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 print:hidden">
           
           <!-- Card 1 -->
           <div class="border border-neutral-200 hover:border-neutral-900 bg-white p-6 rounded-none flex flex-col justify-between relative transition-all duration-200 ease-out hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_#FF0000] group">
@@ -331,8 +350,8 @@
 
         </div>
         
-        <!-- Searchable keywords block -->
-        <div class="p-4 bg-neutral-100/50 border border-neutral-200 font-mono text-[10px] text-neutral-500 leading-relaxed">
+        <!-- Searchable keywords block (Re-styled as flat normal text in print for ATS) -->
+        <div class="p-4 bg-neutral-100/50 border border-neutral-200 font-mono text-[10px] text-neutral-500 leading-relaxed print:bg-transparent print:border-none print:p-0 print:font-sans print:text-neutral-700">
           <span class="font-sans font-bold text-neutral-900 text-xs block mb-1">Search Index / Keywords:</span>
           Python, LLMs (OpenAI, Gemini Enterprise, Anthropic), Google Cloud Agentic AI & RAG Ecosystem (Agent Platform, Agent Engine, Agent Runtime, ADK, A2A, Gemini, Cloud Run, BigQuery, GCS), Agent Frameworks (LangChain, LlamaIndex, LangGraph), NLP & Search (RAG, Embeddings, Semantic Search, TF-IDF, Text Classification, NER), Machine Learning (Scikit-Learn, TensorFlow, Keras, XGBoost, SHAP, Pandas), AI Ops & Observability (Langfuse, DeepEval, CI/CD, GitHub), Prototyping (Streamlit), AI Training & Enablement (Technical Workshops, General AI Literacy, Effective Technical Communication).
         </div>
@@ -344,7 +363,7 @@
     <section class="print-section grid grid-cols-1 sm:grid-cols-4 gap-y-6 sm:gap-x-8 pt-8 border-t border-neutral-200">
       <div class="col-span-1">
         <h2 class="text-xs font-extrabold uppercase tracking-widest text-neutral-950">
-          04 <span class="text-[#FF0000] font-bold">/</span> EDUCATION
+          <span class="print:hidden">04 <span class="text-[#FF0000] font-bold">/</span> </span>EDUCATION
         </h2>
       </div>
       <div class="col-span-3 flex flex-col gap-6">
