@@ -10,3 +10,11 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
+
+# Local Python / uv files
+.python-version
+main.py
+pyproject.toml
+uv.lock
+.venv/
+
