@@ -120,7 +120,7 @@
 </head>
 <body class="bg-[#F9F9FB] text-neutral-800 selection:bg-neutral-200 selection:text-neutral-900 print:bg-white print:text-black">
 
-  <div class="print-container max-w-[680px] mx-auto px-6 py-20 sm:py-32 flex flex-col gap-16 sm:gap-24">
+  <div class="print-container max-w-[680px] mx-auto px-6 py-20 sm:py-32 flex flex-col gap-20 sm:gap-28">
 
     <!-- Hero / Header Section -->
     <header class="print-section flex flex-col">
@@ -130,7 +130,7 @@
       <h1 class="print-hero-title text-4xl sm:text-[2.75rem] font-extrabold tracking-tight text-neutral-950 leading-[1.05] mb-4">
         Ricardo Prieto Álvarez
       </h1>
-      <p class="print-hero-subtitle text-base sm:text-[1.05rem] font-normal leading-relaxed text-neutral-700 max-w-[620px]">
+      <p class="print-hero-subtitle text-base sm:text-[1.05rem] font-normal leading-relaxed text-neutral-750 max-w-[620px]">
         AI Engineer & Data Scientist based in Madrid, Spain. Specialized in designing, deploying, and optimizing agentic systems, LLMs, and RAG architectures.
       </p>
       
@@ -144,15 +144,18 @@
     </header>
 
     <!-- About Section -->
-    <section class="print-section grid grid-cols-1 sm:grid-cols-4 gap-y-3 sm:gap-x-8 pt-8 border-t border-neutral-200">
+    <section class="print-section grid grid-cols-1 sm:grid-cols-4 gap-y-4 sm:gap-x-8 pt-8 border-t border-neutral-200">
       <div class="col-span-1">
         <h2 class="text-xs font-extrabold uppercase tracking-widest text-neutral-950">
           01 <span class="text-[#FF0000] font-bold">/</span> ABOUT
         </h2>
       </div>
-      <div class="col-span-3">
-        <p class="text-sm sm:text-[0.925rem] leading-relaxed text-neutral-700">
-          Certified Google Cloud Professional Machine Learning Engineer with a strong background in building production-ready Generative AI solutions. Experienced in the entire AI lifecycle—from data ingestion to the deployment, monitoring, and evaluation of intelligent agents. Experienced public speaker and instructor, regularly delivering AI training sessions and workshops tailored for both technical engineering teams and general business users. Pragmatic problem-solver and self-taught engineer combining technical depth in NLP with a proactive, solution-oriented approach.
+      <div class="col-span-3 flex flex-col gap-3">
+        <p class="text-base sm:text-[1.1rem] leading-relaxed text-neutral-950 font-medium">
+          Certified Google Cloud Professional ML Engineer specialized in building production-ready Generative AI solutions.
+        </p>
+        <p class="text-sm sm:text-[0.925rem] leading-relaxed text-neutral-600 font-normal">
+          Experienced in the entire AI lifecycle—from data ingestion to deployment, monitoring, and evaluation of intelligent agents. Regular public speaker and instructor delivering AI training sessions for both technical teams and general business users. A pragmatic, self-taught engineer combining technical depth in NLP with a proactive, solution-oriented approach.
         </p>
       </div>
     </section>
@@ -167,79 +170,89 @@
       <div class="col-span-3"></div> <!-- Alignment spacer -->
       
       <!-- dataguru.cloud -->
-      <div class="col-span-1 font-mono text-xs text-neutral-400 pt-0.5 sm:text-left">
+      <div class="col-span-1 font-mono text-xs text-neutral-450 pt-0.5 sm:text-left">
         08/2025 — Present
       </div>
-      <div class="print-item col-span-3 flex flex-col gap-2 pb-8 border-b border-neutral-100">
+      <div class="print-item col-span-3 flex flex-col gap-2 pb-8 border-l border-neutral-200 pl-6 sm:pl-8 relative">
+        <!-- Visual Timeline Node -->
+        <div class="absolute -left-[4.5px] top-[7px] w-2 h-2 bg-[#FF0000]"></div>
         <div>
           <h3 class="text-sm sm:text-base font-bold text-neutral-950 leading-tight">dataguru.cloud</h3>
           <p class="text-xs sm:text-sm font-semibold text-neutral-500">AI Engineer <span class="font-normal text-neutral-300">•</span> Madrid, Spain</p>
         </div>
-        <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-700 list-none pl-0">
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Design and development of Generative AI solutions using LLMs.</li>
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Implementation of RAG architectures and agent frameworks (ADK, A2A, LangChain, LlamaIndex).</li>
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Agent deployment, monitoring, and evaluation in Agent Engine and Cloud Run (GCP).</li>
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Building intelligent agents with advanced Prompt Engineering and deployment via scalable APIs.</li>
+        <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-750 list-none pl-0">
+          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Designing and developing Generative AI solutions using LLMs.</li>
+          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Implementing RAG pipelines and agent frameworks (ADK, A2A, LangChain, LlamaIndex).</li>
+          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Deploying, monitoring, and evaluating agents in Agent Engine and GCP Cloud Run.</li>
+          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Building custom agents with advanced prompt engineering and scalable APIs.</li>
         </ul>
       </div>
 
       <!-- Komorebi AI -->
-      <div class="col-span-1 font-mono text-xs text-neutral-400 pt-0.5 sm:text-left">
+      <div class="col-span-1 font-mono text-xs text-neutral-450 pt-0.5 sm:text-left">
         03/2024 — 08/2025
       </div>
-      <div class="print-item col-span-3 flex flex-col gap-2 pb-8 border-b border-neutral-100">
+      <div class="print-item col-span-3 flex flex-col gap-2 pb-8 border-l border-neutral-200 pl-6 sm:pl-8 relative">
+        <!-- Visual Timeline Node -->
+        <div class="absolute -left-[4.5px] top-[7px] w-2 h-2 bg-[#FF0000]"></div>
         <div>
           <h3 class="text-sm sm:text-base font-bold text-neutral-950 leading-tight">Komorebi AI</h3>
           <p class="text-xs sm:text-sm font-semibold text-neutral-500">AI Engineer, Data Scientist <span class="font-normal text-neutral-300">•</span> Madrid, Spain</p>
         </div>
-        <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-700 list-none pl-0">
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Designed and deployed scalable AI solutions, RAG pipelines, and automated grant proposal agents.</li>
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Built NLP workflows integrating OpenAI/Gemini APIs and custom Streamlit prototypes.</li>
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Implemented LLM monitoring using Langfuse and robust evaluation protocols via DeepEval.</li>
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Developed client analysis automation (multi-class classification) using TF-IDF, embeddings, and NER.</li>
+        <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-750 list-none pl-0">
+          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Designing and deploying RAG pipelines and automated grant proposal agents.</li>
+          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Building NLP workflows with OpenAI/Gemini APIs and Streamlit prototypes.</li>
+          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Integrating LLM monitoring (Langfuse) and robust evaluation (DeepEval).</li>
+          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Automating client analysis using TF-IDF, embeddings, and NER classification.</li>
         </ul>
       </div>
 
       <!-- Management Solutions -->
-      <div class="col-span-1 font-mono text-xs text-neutral-400 pt-0.5 sm:text-left">
+      <div class="col-span-1 font-mono text-xs text-neutral-450 pt-0.5 sm:text-left">
         07/2023 — 03/2024
       </div>
-      <div class="print-item col-span-3 flex flex-col gap-2 pb-8 border-b border-neutral-100">
+      <div class="print-item col-span-3 flex flex-col gap-2 pb-8 border-l border-neutral-200 pl-6 sm:pl-8 relative">
+        <!-- Visual Timeline Node -->
+        <div class="absolute -left-[4.5px] top-[7px] w-2 h-2 bg-[#FF0000]"></div>
         <div>
           <h3 class="text-sm sm:text-base font-bold text-neutral-950 leading-tight">Management Solutions</h3>
           <p class="text-xs sm:text-sm font-semibold text-neutral-500">Consultor Assistant 1 - Data Scientist <span class="font-normal text-neutral-300">•</span> Madrid, Spain</p>
         </div>
-        <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-700 list-none pl-0">
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Developed tools for consumer credit profitability calculation and data mapping for bank migration.</li>
+        <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-750 list-none pl-0">
+          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Developing tools for consumer credit profitability and bank data migration.</li>
         </ul>
       </div>
 
       <!-- MasOrange, UC3M -->
-      <div class="col-span-1 font-mono text-xs text-neutral-400 pt-0.5 sm:text-left">
+      <div class="col-span-1 font-mono text-xs text-neutral-450 pt-0.5 sm:text-left">
         09/2022 — 09/2023
       </div>
-      <div class="print-item col-span-3 flex flex-col gap-2 pb-8 border-b border-neutral-100">
+      <div class="print-item col-span-3 flex flex-col gap-2 pb-8 border-l border-neutral-200 pl-6 sm:pl-8 relative">
+        <!-- Visual Timeline Node -->
+        <div class="absolute -left-[4.5px] top-[7px] w-2 h-2 bg-[#FF0000]"></div>
         <div>
           <h3 class="text-sm sm:text-base font-bold text-neutral-950 leading-tight">MasOrange, UC3M</h3>
           <p class="text-xs sm:text-sm font-semibold text-neutral-500">Machine Learning Researcher <span class="font-normal text-neutral-300">•</span> Madrid, Spain</p>
         </div>
-        <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-700 list-none pl-0">
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Built predictive models (XGBoost, Random Forest, MLP) for customer churn prediction (AUC > 0.85).</li>
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Executed customer segmentation using unsupervised clustering (KMeans, DBSCAN, MCA).</li>
+        <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-750 list-none pl-0">
+          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Building predictive churn models (XGBoost, Random Forest, MLP) with AUC > 0.85.</li>
+          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Executing customer segmentation using KMeans, DBSCAN, and MCA.</li>
         </ul>
       </div>
 
       <!-- Novartis -->
-      <div class="col-span-1 font-mono text-xs text-neutral-400 pt-0.5 sm:text-left">
+      <div class="col-span-1 font-mono text-xs text-neutral-450 pt-0.5 sm:text-left">
         07/2018 — 08/2018
       </div>
-      <div class="print-item col-span-3 flex flex-col gap-2">
+      <div class="print-item col-span-3 flex flex-col gap-2 border-l border-neutral-200 pl-6 sm:pl-8 relative">
+        <!-- Visual Timeline Node -->
+        <div class="absolute -left-[4.5px] top-[7px] w-2 h-2 bg-[#FF0000]"></div>
         <div>
           <h3 class="text-sm sm:text-base font-bold text-neutral-950 leading-tight">Novartis</h3>
           <p class="text-xs sm:text-sm font-semibold text-neutral-500">Chatbot Developer - Internship <span class="font-normal text-neutral-300">•</span> Basel, Switzerland</p>
         </div>
-        <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-700 list-none pl-0">
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Developed a semantic search Q&A base and FAQ chatbot using Azure Bot Service for health authorities.</li>
+        <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-750 list-none pl-0">
+          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Developing semantic search Q&A systems and FAQ chatbots via Azure Bot Service.</li>
         </ul>
       </div>
     </section>
@@ -254,12 +267,13 @@
       
       <div class="col-span-3 flex flex-col gap-6">
         
-        <!-- Modular Typographic Skills Cards (No Shadow, No border-radius, pure Swiss grid) -->
+        <!-- Modular Typographic Skills Cards (No Shadow, No border-radius, hover border effect) -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           
           <!-- Card 1 -->
-          <div class="border border-neutral-200 bg-white p-5 rounded-none flex flex-col justify-between">
-            <div>
+          <div class="border border-neutral-200 hover:border-neutral-900 transition-colors duration-100 bg-white p-6 rounded-none flex flex-col justify-between relative">
+            <div class="absolute top-4 right-4 font-mono text-[32px] font-extrabold text-neutral-100 leading-none select-none tracking-tighter">01</div>
+            <div class="pr-8">
               <span class="font-mono text-[9px] font-bold text-neutral-400 tracking-wider">01 // CORE</span>
               <h3 class="text-xs font-bold uppercase tracking-wider text-[#FF0000] mt-1 mb-2">Agentic AI & LLMs</h3>
               <p class="text-xs text-neutral-700 leading-relaxed font-sans">
@@ -269,8 +283,9 @@
           </div>
           
           <!-- Card 2 -->
-          <div class="border border-neutral-200 bg-white p-5 rounded-none flex flex-col justify-between">
-            <div>
+          <div class="border border-neutral-200 hover:border-neutral-900 transition-colors duration-100 bg-white p-6 rounded-none flex flex-col justify-between relative">
+            <div class="absolute top-4 right-4 font-mono text-[32px] font-extrabold text-neutral-100 leading-none select-none tracking-tighter">02</div>
+            <div class="pr-8">
               <span class="font-mono text-[9px] font-bold text-neutral-400 tracking-wider">02 // DATA SCIENCE</span>
               <h3 class="text-xs font-bold uppercase tracking-wider text-[#FF0000] mt-1 mb-2">NLP & Machine Learning</h3>
               <p class="text-xs text-neutral-700 leading-relaxed font-sans">
@@ -280,8 +295,9 @@
           </div>
 
           <!-- Card 3 -->
-          <div class="border border-neutral-200 bg-white p-5 rounded-none flex flex-col justify-between">
-            <div>
+          <div class="border border-neutral-200 hover:border-neutral-900 transition-colors duration-100 bg-white p-6 rounded-none flex flex-col justify-between relative">
+            <div class="absolute top-4 right-4 font-mono text-[32px] font-extrabold text-neutral-100 leading-none select-none tracking-tighter">03</div>
+            <div class="pr-8">
               <span class="font-mono text-[9px] font-bold text-neutral-400 tracking-wider">03 // CLOUD & OPS</span>
               <h3 class="text-xs font-bold uppercase tracking-wider text-[#FF0000] mt-1 mb-2">GCP & AI Observability</h3>
               <p class="text-xs text-neutral-700 leading-relaxed font-sans">
@@ -291,12 +307,13 @@
           </div>
 
           <!-- Card 4 -->
-          <div class="border border-neutral-200 bg-white p-5 rounded-none flex flex-col justify-between">
-            <div>
+          <div class="border border-neutral-200 hover:border-neutral-900 transition-colors duration-100 bg-white p-6 rounded-none flex flex-col justify-between relative">
+            <div class="absolute top-4 right-4 font-mono text-[32px] font-extrabold text-neutral-100 leading-none select-none tracking-tighter">04</div>
+            <div class="pr-8">
               <span class="font-mono text-[9px] font-bold text-neutral-400 tracking-wider">04 // OUTREACH</span>
               <h3 class="text-xs font-bold uppercase tracking-wider text-[#FF0000] mt-1 mb-2">Training & Enablement</h3>
               <p class="text-xs text-neutral-700 leading-relaxed font-sans">
-                Delivering technical workshops, general AI literacy sessions, and creating custom Streamlit prototypes to align technical systems with business users.
+                Specialized in delivering training sessions and workshops on AI aspects tailored for both technical engineering teams and general business users.
               </p>
             </div>
           </div>
@@ -323,7 +340,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-y-4 sm:gap-y-3">
           <!-- 2024 -->
           <div class="col-span-1 font-mono text-xs text-neutral-400 sm:text-left pt-0.5">2024</div>
-          <div class="col-span-2 text-sm text-neutral-700 pb-2 border-b border-neutral-100 sm:border-0 sm:pb-0">
+          <div class="col-span-2 text-sm text-neutral-750 pb-2 border-b border-neutral-100 sm:border-0 sm:pb-0">
             <span class="font-semibold text-neutral-950">M.Sc. in Artificial Intelligence Research</span><br>
             <span class="text-neutral-500 text-xs">UNED</span>
           </div>
