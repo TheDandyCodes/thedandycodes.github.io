@@ -1,419 +1,869 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth bg-[#F9F9FB] text-neutral-800 antialiased selection:bg-neutral-200 selection:text-neutral-900">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ricardo Prieto Álvarez — AI Engineer & Data Scientist</title>
-  <meta name="description" content="Certified Google Cloud Professional Machine Learning Engineer. Specialized in agentic systems, LLMs, and RAG architectures. Based in Madrid, Spain.">
-  
-  <!-- Tailwind CSS via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Google Fonts: Instrument Sans (Neo-Grotesque Swiss Fallback) -->
+  <title>Ricardo Prieto Álvarez | AI Engineer</title>
+  <meta name="description" content="AI Engineer, Data Scientist and corporate trainer specialized in agentic AI, RAG and Google AI enablement.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;650;700;800&display=swap" rel="stylesheet">
-  
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Helvetica Neue"', 'Helvetica', '"Instrument Sans"', 'Arial', 'sans-serif'],
-          },
-        },
-      },
-    }
-  </script>
-  
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add('js');</script>
+
   <style>
-    /* Typographic enhancements for Swiss Design */
+    :root {
+      --paper: #f7f6f2;
+      --ink: #171714;
+      --muted: #6f6d65;
+      --line: rgba(23, 23, 20, 0.16);
+      --line-soft: rgba(23, 23, 20, 0.08);
+      --accent: #e94f20;
+      --display: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+      --max-width: 1120px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--display);
+      -webkit-font-smoothing: antialiased;
+    }
+
     body {
+      min-height: 100vh;
+      line-height: 1.55;
+    }
+
+    ::selection {
+      color: #fff;
+      background: var(--accent);
+    }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(calc(100% - 64px), var(--max-width));
+      margin-inline: auto;
+    }
+
+    main { overflow: hidden; }
+
+    .hero {
+      min-height: min(760px, 100svh);
+      display: flex;
+      align-items: center;
+      padding-block: 88px;
+    }
+
+    .hero-copy {
+      width: 100%;
+      max-width: 960px;
+    }
+
+    .hero-identity {
+      display: flex;
+      align-items: flex-end;
+      gap: clamp(18px, 3vw, 36px);
+    }
+
+    .eyebrow,
+    .section-kicker {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .hero-title {
+      flex: 1;
+      min-width: 0;
+      font-size: clamp(58px, 7.7vw, 104px);
+      font-weight: 700;
+      line-height: 0.92;
+      letter-spacing: -0.065em;
+    }
+
+    .hero-title em {
+      display: block;
+      color: var(--accent);
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    .hero-intro {
+      max-width: 570px;
+      margin-top: 32px;
+      color: #34332f;
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.48;
       letter-spacing: -0.015em;
     }
-    h1, h2, h3, h4 {
-      text-wrap: balance;
-      letter-spacing: -0.035em;
+
+    .hero-actions {
+      display: flex;
+      gap: 28px;
+      margin-top: 36px;
     }
-    p, li {
-      text-wrap: pretty;
-    }
-    
-    /* Clean text links with instant bottom-border shift on hover (100ms transition) */
-    .swiss-link {
+
+    .text-link {
       position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 5px;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 600;
       text-decoration: none;
-      transition: color 100ms ease-in-out;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
-    .swiss-link::after {
+
+    .text-link::after {
       content: '';
       position: absolute;
-      width: 100%;
+      inset: auto 0 0;
       height: 1px;
-      bottom: -1px;
-      left: 0;
-      background-color: #E5E7EB; /* border-neutral-200 */
-      transition: background-color 100ms ease-in-out;
+      background: currentColor;
+      transform-origin: left;
+      transition: transform 200ms ease;
     }
-    .swiss-link:hover {
-      color: #000000;
+
+    .text-link:hover::after { transform: scaleX(0.35); }
+    .text-link.accent { color: var(--accent); }
+
+    .hero-portrait {
+      position: relative;
+      flex: 0 0 clamp(92px, 11vw, 128px);
+      width: clamp(92px, 11vw, 128px);
+      aspect-ratio: 1;
+      margin-bottom: 10px;
+      overflow: visible;
     }
-    .swiss-link:hover::after {
-      background-color: #FF0000; /* Swiss Red accent */
+
+    .hero-portrait::before {
+      content: '';
+      position: absolute;
+      inset: 7px -7px -7px 7px;
+      border: 1px solid rgba(233, 79, 32, 0.35);
+      z-index: -1;
     }
-    
-    /* Print optimizations for 100% ATS (Applicant Tracking System) parser compatibility */
+
+    .hero-portrait img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 28%;
+      border: 1px solid var(--line);
+      filter: saturate(0.82) contrast(0.98);
+      transition: filter 450ms ease, transform 450ms cubic-bezier(.2,.7,.2,1);
+    }
+
+    .hero-portrait:hover img {
+      filter: saturate(1) contrast(1);
+      transform: translate(-3px, -3px);
+    }
+
+    .section {
+      padding-block: clamp(88px, 10vw, 136px);
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      gap: 32px;
+      margin-bottom: 56px;
+      align-items: baseline;
+    }
+
+    .section-kicker { color: var(--accent); }
+
+    .section-title {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      gap: 32px;
+    }
+
+    .about-aside {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 10px;
+      line-height: 1.8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .about-lead {
+      max-width: 760px;
+      font-size: clamp(25px, 3.2vw, 40px);
+      font-weight: 400;
+      line-height: 1.28;
+      letter-spacing: -0.035em;
+    }
+
+    .about-lead strong { font-weight: 600; }
+
+    .about-note {
+      max-width: 640px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .experience-list { border-top: 1px solid var(--line); }
+
+    .experience-item {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr 2.7fr;
+      gap: 32px;
+      padding-block: 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .experience-date {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .experience-company {
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+    }
+
+    .experience-role {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .experience-copy {
+      max-width: 650px;
+      color: #34332f;
+      font-size: 16px;
+    }
+
+    .experience-copy p + p { margin-top: 12px; }
+
+    .client-marquee {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      align-items: stretch;
+      margin-top: 22px;
+      border-block: 1px solid var(--line);
+    }
+
+    .client-marquee-label {
+      display: flex;
+      align-items: center;
+      padding: 10px 12px 10px 0;
+      border-right: 1px solid var(--line);
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+
+    .client-marquee-window {
+      min-width: 0;
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    }
+
+    .client-marquee-track {
+      display: flex;
+      width: max-content;
+      animation: client-scroll 22s linear infinite;
+    }
+
+    .client-marquee:hover .client-marquee-track {
+      animation-play-state: paused;
+    }
+
+    .client-marquee-group {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      padding: 11px 34px 11px 22px;
+      white-space: nowrap;
+    }
+
+    .client-logo {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+      width: 118px;
+      height: 28px;
+    }
+
+    .client-logo img {
+      display: block;
+      width: auto;
+      max-width: 100%;
+      max-height: 26px;
+      object-fit: contain;
+    }
+
+    .client-logo--h10 { width: 64px; }
+    .client-logo--eulen { width: 94px; }
+    .client-logo--cesce { width: 92px; }
+    .client-logo--soledad { width: 124px; }
+    .client-logo--travel { width: 104px; }
+    .client-logo--economista { width: 132px; }
+
+    .client-logo--light {
+      height: 30px;
+      padding: 5px 10px;
+      border-radius: 2px;
+      background: #202f62;
+    }
+
+    .client-logo--ruiz {
+      width: auto;
+      gap: 8px;
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .client-logo--ruiz img {
+      width: 26px;
+      height: 26px;
+    }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+      border-block: 1px solid var(--line);
+    }
+
+    .focus-column {
+      min-height: 270px;
+      padding: 32px;
+      border-right: 1px solid var(--line);
+      transition: background 220ms ease;
+    }
+
+    .focus-column:first-child { padding-left: 0; }
+
+    .focus-column:last-child {
+      padding-right: 0;
+      border-right: 0;
+    }
+
+    .focus-column:hover { background: rgba(255, 255, 255, 0.32); }
+
+    .focus-index {
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 9px;
+    }
+
+    .focus-title {
+      margin-top: 40px;
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: -0.035em;
+    }
+
+    .focus-copy {
+      max-width: 280px;
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 72px;
+    }
+
+    .credential-group-title {
+      margin-bottom: 24px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .credential-item {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 20px;
+      padding-block: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .credential-meta {
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 9px;
+      line-height: 1.6;
+      text-transform: uppercase;
+    }
+
+    .credential-name {
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .credential-source {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .contact {
+      padding-block: clamp(96px, 13vw, 168px);
+      border-top: 1px solid var(--line);
+    }
+
+    .contact-eyebrow {
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .contact-heading {
+      max-width: 850px;
+      margin-top: 22px;
+      font-size: clamp(44px, 7vw, 84px);
+      font-weight: 600;
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+      margin-top: 56px;
+    }
+
+    .contact-email {
+      color: var(--ink);
+      font-size: clamp(18px, 2.5vw, 28px);
+      font-weight: 500;
+      text-decoration-color: var(--accent);
+      text-underline-offset: 8px;
+      text-decoration-thickness: 1px;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 24px;
+      font-family: var(--mono);
+      font-size: 10px;
+      text-transform: uppercase;
+    }
+
+    .contact-links a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 180ms ease;
+    }
+
+    .contact-links a:hover { color: var(--accent); }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding-block: 24px;
+      border-top: 1px solid var(--line-soft);
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    .print-button {
+      color: inherit;
+      background: none;
+      border: 0;
+      font: inherit;
+      text-transform: inherit;
+      letter-spacing: inherit;
+      cursor: pointer;
+    }
+
+    .print-button:hover { color: var(--ink); }
+
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 620ms cubic-bezier(.2,.7,.2,1), transform 620ms cubic-bezier(.2,.7,.2,1);
+    }
+
+    .js .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes client-scroll {
+      to { transform: translateX(-50%); }
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        min-height: auto;
+        padding-block: 88px;
+      }
+
+      .section-heading,
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .experience-item { grid-template-columns: 1fr 1.2fr; }
+      .experience-copy { grid-column: 2; }
+      .credentials-grid { gap: 40px; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(calc(100% - 40px), var(--max-width)); }
+      .hero {
+        padding-block: 64px 80px;
+      }
+
+      .hero-title { font-size: clamp(52px, 17vw, 72px); }
+      .hero-intro { font-size: 18px; }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+      }
+
+      .hero-identity { gap: 16px; }
+
+      .hero-portrait {
+        flex-basis: 82px;
+        width: 82px;
+        margin-bottom: 6px;
+      }
+      .section { padding-block: 80px; }
+      .section-heading { margin-bottom: 40px; }
+      .about-aside br { display: none; }
+
+      .experience-item {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding-block: 32px;
+      }
+
+      .experience-copy { grid-column: auto; }
+      .focus-grid { grid-template-columns: 1fr; }
+
+      .focus-column,
+      .focus-column:first-child,
+      .focus-column:last-child {
+        min-height: auto;
+        padding: 28px 0;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .focus-column:last-child { border-bottom: 0; }
+      .focus-title { margin-top: 22px; }
+      .credentials-grid { grid-template-columns: 1fr; }
+
+      .contact-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .contact-links { flex-wrap: wrap; }
+
+      .footer {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .client-marquee-window {
+        overflow-x: auto;
+        mask-image: none;
+      }
+
+      .client-marquee-track { animation: none !important; }
+      .client-marquee-group + .client-marquee-group { display: none; }
+    }
+
     @media print {
-      @page {
-        size: A4 portrait;
-        margin: 0; /* Hides default browser header (date, title) and footer (URL) */
-      }
-      body {
-        background-color: #ffffff !important;
-        color: #000000 !important;
-        font-size: 11px !important;
-        line-height: 1.45 !important;
-        padding: 1.2cm 1.5cm !important; /* Restores standard A4 margins within body content */
-      }
-      .no-print {
-        display: none !important;
-      }
-      .print-container {
-        padding: 0 !important;
-        max-width: 100% !important;
-        width: 100% !important;
-      }
-      /* Force single-column layout for ATS parser logical reading order */
-      .grid {
-        display: block !important;
-      }
-      .col-span-1, .col-span-2, .col-span-3, .col-span-4 {
-        width: 100% !important;
-        display: block !important;
-        margin: 0 0 0.5rem 0 !important;
-        padding: 0 !important;
-        border: none !important;
-      }
-      .print-section {
-        margin-top: 1.25rem !important;
-        padding-top: 0.75rem !important;
-        border-top: 1px solid #E5E7EB !important;
-        break-inside: avoid;
-      }
-      /* Remove timeline lines & padding in print for clean parsing */
-      .print-item {
-        margin-bottom: 0.75rem !important;
-        padding-left: 0 !important;
-        border-left: none !important;
-        break-inside: avoid;
-      }
-      .print-bullet-list {
-        margin-top: 0.25rem !important;
-        gap: 0.15rem !important;
-      }
-      .print-bullet-list li {
-        font-size: 10px !important;
-        line-height: 1.4 !important;
-      }
-      .print-hero-title {
-        font-size: 2.2rem !important;
-        line-height: 1.1 !important;
-      }
-      .print-hero-subtitle {
-        font-size: 12px !important;
-        margin-top: 0.5rem !important;
-        line-height: 1.4 !important;
-      }
-      .print-links {
-        margin-top: 0.5rem !important;
-        gap: 1rem !important;
-      }
-      .swiss-link::after {
-        display: none !important;
-      }
-      .swiss-link {
-        text-decoration: underline !important;
-        color: #000000 !important;
-      }
-      /* Hide absolute elements (timeline nodes) to avoid parsing glitches */
-      .absolute {
-        display: none !important;
-      }
+      :root { --paper: #fff; }
+      .hero-portrait, .hero-actions, .print-button { display: none !important; }
+      .container { width: 100%; }
+      .hero { min-height: 0; display: block; padding: 24px 0 48px; }
+      .hero-title { font-size: 48pt; }
+      .section, .contact { padding-block: 36px; }
+      .section-heading, .about-grid { grid-template-columns: 1fr 3fr; }
+      .experience-item { break-inside: avoid; }
+      .client-marquee-window { overflow: visible; mask-image: none; }
+      .client-marquee-track { animation: none; }
+      .client-marquee-group + .client-marquee-group { display: none; }
+      .focus-column { min-height: 0; }
+      .js .reveal { opacity: 1 !important; transform: none !important; }
     }
   </style>
 </head>
-<body class="bg-[#F9F9FB] text-neutral-800 selection:bg-neutral-200 selection:text-neutral-900 print:bg-white print:text-black">
 
-  <div class="print-container max-w-[680px] mx-auto px-6 py-20 sm:py-32 flex flex-col gap-20 sm:gap-28">
-
-    <!-- Hero / Header Section -->
-    <header class="print-section grid grid-cols-1 sm:grid-cols-4 gap-y-6 sm:gap-x-8">
-      <div class="col-span-1 flex flex-col gap-3">
-        <!-- Profile Photo (Square crop, Grayscale, Swiss Style - Hidden on Print for ATS) -->
-        <div class="w-28 h-28 sm:w-full sm:h-auto aspect-square overflow-hidden bg-neutral-100 border border-neutral-200 select-none group cursor-crosshair print:hidden">
-          <img src="profile.jpg" alt="Ricardo Prieto Álvarez" class="w-full h-full object-cover grayscale hover:grayscale-0 group-hover:scale-105 transition-all duration-300 ease-out">
+<body>
+  <main id="top">
+    <section class="hero container">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">AI Engineer · Corporate AI Trainer</p>
+        <div class="hero-identity">
+          <h1 class="hero-title">Ricardo<em>Prieto Álvarez.</em></h1>
+          <figure class="hero-portrait">
+            <img src="profile.jpg" alt="Portrait of Ricardo Prieto Álvarez" width="1024" height="1024">
+          </figure>
         </div>
-        <span class="font-mono text-[9px] font-bold text-neutral-400 tracking-wider uppercase print:hidden">RPA <span class="text-[#FF0000] font-bold">/</span> 2026</span>
+        <p class="hero-intro">I build AI applications and deliver corporate training for technical and business teams. Based in Madrid.</p>
+        <div class="hero-actions">
+          <a class="text-link accent" href="#experience">View experience <span aria-hidden="true">↓</span></a>
+          <a class="text-link" href="mailto:ricardoprietoaiml@gmail.com">Email me <span aria-hidden="true">↗</span></a>
+        </div>
       </div>
-      
-      <div class="col-span-3 flex flex-col justify-end">
-        <h1 class="print-hero-title text-4xl sm:text-[2.75rem] font-extrabold tracking-tight text-neutral-950 leading-[1.05] mb-4">
-          Ricardo Prieto Álvarez
-        </h1>
-        <p class="print-hero-subtitle text-base sm:text-[1.05rem] font-normal leading-relaxed text-neutral-700 max-w-[500px]">
-          AI Engineer & Data Scientist based in Madrid, Spain. Specialized in designing, deploying, and optimizing agentic systems, LLMs, and RAG architectures.
-        </p>
-        
-        <div class="print-links flex flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-neutral-500 font-medium">
-          <a href="mailto:ricardoprietoaiml@gmail.com" class="swiss-link">Email: ricardoprietoaiml@gmail.com</a>
+    </section>
+
+    <section class="section container reveal" id="about">
+      <div class="section-heading">
+        <p class="section-kicker">01 / About</p>
+        <h2 class="section-title">What I do</h2>
+      </div>
+      <div class="about-grid">
+        <p class="about-aside">Madrid, Spain<br>AI Engineering + Training</p>
+        <div>
+          <p class="about-lead">I develop <strong>AI agents, RAG systems and NLP solutions</strong>. At dataguru, I also design and deliver corporate training on AI in business environments.</p>
+          <p class="about-note">I work with technical teams, business users and managers, adapting the level and examples to each audience.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container reveal" id="experience">
+      <div class="section-heading">
+        <p class="section-kicker">02 / Experience</p>
+        <h2 class="section-title">Selected work</h2>
+      </div>
+      <div class="experience-list">
+        <article class="experience-item">
+          <p class="experience-date">Aug 2025 — Now</p>
           <div>
-            <a href="https://www.linkedin.com/in/ricardo-prieto-alvarez" target="_blank" rel="noopener noreferrer" class="swiss-link">LinkedIn</a>
-            <span class="hidden print:inline font-mono text-[9px] text-neutral-400"> (linkedin.com/in/ricardo-prieto-alvarez)</span>
+            <h3 class="experience-company">dataguru.cloud</h3>
+            <span class="experience-role">AI Engineer & Corporate Trainer</span>
           </div>
+          <div class="experience-copy">
+            <p>Building and deploying generative AI and agentic systems with RAG, ADK, Agent Engine and Google Cloud.</p>
+            <p>Designing and delivering corporate AI training for technical and business teams.</p>
+            <div class="client-marquee" role="group" aria-label="Teams trained from H10, Grupo Eulen, Grupo Ruiz, CESCE, Grupo Soledad, Travel Club and El Economista">
+              <span class="client-marquee-label">Teams trained</span>
+              <div class="client-marquee-window" aria-hidden="true">
+                <div class="client-marquee-track">
+                  <div class="client-marquee-group">
+                    <span class="client-logo client-logo--h10"><img src="https://pro-static.h10hotels.com/templates/H10/src/logos/logo-main.svg" alt=""></span>
+                    <span class="client-logo client-logo--eulen"><img src="https://www.eulen.com/es/wp-content/uploads/sites/2/2022/06/logo_principal_oscuro.webp" alt=""></span>
+                    <span class="client-logo client-logo--ruiz"><img src="https://gruporuiz.com/wp-content/uploads/2024/11/favicon_32x32@2x.svg" alt="">Grupo Ruiz</span>
+                    <span class="client-logo client-logo--cesce client-logo--light"><img src="https://www.cesce.es/o/liferay-cesce-theme/images/logo-cescebl.svg" alt=""></span>
+                    <span class="client-logo client-logo--soledad"><img src="https://www.gruposoledad.com/wp-content/uploads/2024/09/Sin-ti%CC%81tulo-500-x-200-px-1.png" alt=""></span>
+                    <span class="client-logo client-logo--travel client-logo--light"><img src="https://www.travelclub.es/assets/base/img/layout/logos/logo_AME_invertido_4.png" alt=""></span>
+                    <span class="client-logo client-logo--economista"><img src="https://s03.s3c.es/imag3/logos/20aniversario/logofinal-20anos-amp.svg" alt=""></span>
+                  </div>
+                  <div class="client-marquee-group">
+                    <span class="client-logo client-logo--h10"><img src="https://pro-static.h10hotels.com/templates/H10/src/logos/logo-main.svg" alt=""></span>
+                    <span class="client-logo client-logo--eulen"><img src="https://www.eulen.com/es/wp-content/uploads/sites/2/2022/06/logo_principal_oscuro.webp" alt=""></span>
+                    <span class="client-logo client-logo--ruiz"><img src="https://gruporuiz.com/wp-content/uploads/2024/11/favicon_32x32@2x.svg" alt="">Grupo Ruiz</span>
+                    <span class="client-logo client-logo--cesce client-logo--light"><img src="https://www.cesce.es/o/liferay-cesce-theme/images/logo-cescebl.svg" alt=""></span>
+                    <span class="client-logo client-logo--soledad"><img src="https://www.gruposoledad.com/wp-content/uploads/2024/09/Sin-ti%CC%81tulo-500-x-200-px-1.png" alt=""></span>
+                    <span class="client-logo client-logo--travel client-logo--light"><img src="https://www.travelclub.es/assets/base/img/layout/logos/logo_AME_invertido_4.png" alt=""></span>
+                    <span class="client-logo client-logo--economista"><img src="https://s03.s3c.es/imag3/logos/20aniversario/logofinal-20anos-amp.svg" alt=""></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="experience-item">
+          <p class="experience-date">2021 — 2023</p>
           <div>
-            <a href="https://github.com/ricardoprieto" target="_blank" rel="noopener noreferrer" class="swiss-link">GitHub</a>
-            <span class="hidden print:inline font-mono text-[9px] text-neutral-400"> (github.com/ricardoprieto)</span>
+            <h3 class="experience-company">Komorebi AI</h3>
+            <span class="experience-role">AI Engineer / Data Scientist</span>
           </div>
-          <a href="tel:+34649530513" class="swiss-link">Phone: +34 649 53 05 13</a>
-        </div>
-      </div>
-    </header>
-
-    <!-- About Section -->
-    <section class="print-section grid grid-cols-1 sm:grid-cols-4 gap-y-4 sm:gap-x-8 pt-8 border-t border-neutral-200">
-      <div class="col-span-1">
-        <h2 class="text-xs font-extrabold uppercase tracking-widest text-neutral-950">
-          <span class="print:hidden">01 <span class="text-[#FF0000] font-bold">/</span> </span>ABOUT
-        </h2>
-      </div>
-      <div class="col-span-3 flex flex-col gap-3">
-        <p class="text-base sm:text-[1.1rem] leading-relaxed text-neutral-950 font-medium">
-          Certified Google Cloud Professional ML Engineer specialized in building production-ready Generative AI solutions.
-        </p>
-        <p class="text-sm sm:text-[0.925rem] leading-relaxed text-neutral-600 font-normal">
-          Experienced in the entire AI lifecycle—from data ingestion to deployment, monitoring, and evaluation of intelligent agents. Regular public speaker and instructor delivering AI training sessions for both technical teams and general business users. A pragmatic, self-taught engineer combining technical depth in NLP with a proactive, solution-oriented approach.
-        </p>
+          <div class="experience-copy">
+            <p>Developed AI agents to prepare public tender submissions using RAG, LLM-as-a-judge evaluation and iterative refinement.</p>
+            <p>Also built NLP, semantic-search and machine-learning systems for structured and unstructured data.</p>
+          </div>
+        </article>
       </div>
     </section>
 
-    <!-- Experience Section -->
-    <section class="print-section grid grid-cols-1 sm:grid-cols-4 gap-y-8 sm:gap-x-8 pt-8 border-t border-neutral-200">
-      <div class="col-span-1">
-        <h2 class="text-xs font-extrabold uppercase tracking-widest text-neutral-950">
-          <span class="print:hidden">02 <span class="text-[#FF0000] font-bold">/</span> </span>EXPERIENCE
-        </h2>
+    <section class="section container reveal" id="focus">
+      <div class="section-heading">
+        <p class="section-kicker">03 / Focus</p>
+        <h2 class="section-title">Areas of work</h2>
       </div>
-      <div class="col-span-3"></div> <!-- Alignment spacer -->
-      
-      <!-- dataguru.cloud -->
-      <div class="col-span-1 font-mono text-xs text-neutral-450 pt-0.5 sm:text-left">
-        08/2025 — Present
-      </div>
-      <div class="print-item col-span-3 flex flex-col gap-2 pb-8 border-l border-neutral-200 pl-6 sm:pl-8 relative group cursor-default">
-        <!-- Visual Timeline Node (Rotates & scales on row hover) -->
-        <div class="absolute -left-[4.5px] top-[7px] w-2 h-2 bg-[#FF0000] group-hover:rotate-45 group-hover:scale-125 transition-all duration-200 ease-out"></div>
-        <div>
-          <h3 class="text-sm sm:text-base font-bold text-neutral-950 leading-tight">dataguru.cloud</h3>
-          <p class="text-xs sm:text-sm font-semibold text-neutral-500">AI Engineer <span class="font-normal text-neutral-300">•</span> Madrid, Spain</p>
-        </div>
-        <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-750 list-none pl-0">
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Designing and developing Generative AI solutions using LLMs.</li>
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Implementing RAG pipelines and agent frameworks (ADK, A2A, LangChain, LlamaIndex).</li>
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Deploying, monitoring, and evaluating agents in Agent Engine and GCP Cloud Run.</li>
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Building custom agents with advanced prompt engineering and scalable APIs.</li>
-        </ul>
-      </div>
-
-      <!-- Komorebi AI -->
-      <div class="col-span-1 font-mono text-xs text-neutral-450 pt-0.5 sm:text-left">
-        03/2024 — 08/2025
-      </div>
-      <div class="print-item col-span-3 flex flex-col gap-2 pb-8 border-l border-neutral-200 pl-6 sm:pl-8 relative group cursor-default">
-        <!-- Visual Timeline Node (Rotates & scales on row hover) -->
-        <div class="absolute -left-[4.5px] top-[7px] w-2 h-2 bg-[#FF0000] group-hover:rotate-45 group-hover:scale-125 transition-all duration-200 ease-out"></div>
-        <div>
-          <h3 class="text-sm sm:text-base font-bold text-neutral-950 leading-tight">Komorebi AI</h3>
-          <p class="text-xs sm:text-sm font-semibold text-neutral-500">AI Engineer, Data Scientist <span class="font-normal text-neutral-300">•</span> Madrid, Spain</p>
-        </div>
-        <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-750 list-none pl-0">
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Designing and deploying RAG pipelines and automated grant proposal agents.</li>
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Building NLP workflows with OpenAI/Gemini APIs and Streamlit prototypes.</li>
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Integrating LLM monitoring (Langfuse) and robust evaluation (DeepEval).</li>
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Automating client analysis using TF-IDF, embeddings, and NER classification.</li>
-        </ul>
-      </div>
-
-      <!-- Management Solutions -->
-      <div class="col-span-1 font-mono text-xs text-neutral-450 pt-0.5 sm:text-left">
-        07/2023 — 03/2024
-      </div>
-      <div class="print-item col-span-3 flex flex-col gap-2 pb-8 border-l border-neutral-200 pl-6 sm:pl-8 relative group cursor-default">
-        <!-- Visual Timeline Node (Rotates & scales on row hover) -->
-        <div class="absolute -left-[4.5px] top-[7px] w-2 h-2 bg-[#FF0000] group-hover:rotate-45 group-hover:scale-125 transition-all duration-200 ease-out"></div>
-        <div>
-          <h3 class="text-sm sm:text-base font-bold text-neutral-950 leading-tight">Management Solutions</h3>
-          <p class="text-xs sm:text-sm font-semibold text-neutral-500">Consultor Assistant 1 - Data Scientist <span class="font-normal text-neutral-300">•</span> Madrid, Spain</p>
-        </div>
-        <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-750 list-none pl-0">
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Developing tools for consumer credit profitability and bank data migration.</li>
-        </ul>
-      </div>
-
-      <!-- MasOrange, UC3M -->
-      <div class="col-span-1 font-mono text-xs text-neutral-450 pt-0.5 sm:text-left">
-        09/2022 — 09/2023
-      </div>
-      <div class="print-item col-span-3 flex flex-col gap-2 pb-8 border-l border-neutral-200 pl-6 sm:pl-8 relative group cursor-default">
-        <!-- Visual Timeline Node (Rotates & scales on row hover) -->
-        <div class="absolute -left-[4.5px] top-[7px] w-2 h-2 bg-[#FF0000] group-hover:rotate-45 group-hover:scale-125 transition-all duration-200 ease-out"></div>
-        <div>
-          <h3 class="text-sm sm:text-base font-bold text-neutral-950 leading-tight">MasOrange, UC3M</h3>
-          <p class="text-xs sm:text-sm font-semibold text-neutral-500">Machine Learning Researcher <span class="font-normal text-neutral-300">•</span> Madrid, Spain</p>
-        </div>
-        <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-750 list-none pl-0">
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Building predictive churn models (XGBoost, Random Forest, MLP) with AUC > 0.85.</li>
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Executing customer segmentation using KMeans, DBSCAN, and MCA.</li>
-        </ul>
-      </div>
-
-      <!-- Novartis -->
-      <div class="col-span-1 font-mono text-xs text-neutral-450 pt-0.5 sm:text-left">
-        07/2018 — 08/2018
-      </div>
-      <div class="print-item col-span-3 flex flex-col gap-2 border-l border-neutral-200 pl-6 sm:pl-8 relative group cursor-default">
-        <!-- Visual Timeline Node (Rotates & scales on row hover) -->
-        <div class="absolute -left-[4.5px] top-[7px] w-2 h-2 bg-[#FF0000] group-hover:rotate-45 group-hover:scale-125 transition-all duration-200 ease-out"></div>
-        <div>
-          <h3 class="text-sm sm:text-base font-bold text-neutral-950 leading-tight">Novartis</h3>
-          <p class="text-xs sm:text-sm font-semibold text-neutral-500">Chatbot Developer - Internship <span class="font-normal text-neutral-300">•</span> Basel, Switzerland</p>
-        </div>
-        <ul class="print-bullet-list flex flex-col gap-1 text-sm text-neutral-750 list-none pl-0">
-          <li class="relative pl-4 before:content-['—'] before:absolute before:left-0 before:text-[#FF0000] before:font-bold">Developing semantic search Q&A systems and FAQ chatbots via Azure Bot Service.</li>
-        </ul>
+      <div class="focus-grid">
+        <article class="focus-column">
+          <span class="focus-index">01</span>
+          <h3 class="focus-title">AI Engineering</h3>
+          <p class="focus-copy">AI agents, RAG pipelines, LLM applications, evaluation, observability, NLP, semantic search, classification, embeddings and statistical validation.</p>
+        </article>
+        <article class="focus-column">
+          <span class="focus-index">02</span>
+          <h3 class="focus-title">Corporate AI Training</h3>
+          <p class="focus-copy">Training for technical and business teams on practical AI adoption and advanced use cases in enterprise environments.</p>
+        </article>
       </div>
     </section>
 
-    <!-- Skills Section -->
-    <section class="print-section grid grid-cols-1 sm:grid-cols-4 gap-y-6 sm:gap-x-8 pt-8 border-t border-neutral-200">
-      <div class="col-span-1">
-        <h2 class="text-xs font-extrabold uppercase tracking-widest text-neutral-950">
-          <span class="print:hidden">03 <span class="text-[#FF0000] font-bold">/</span> </span>SKILLS
-        </h2>
+    <section class="section container reveal" id="credentials">
+      <div class="section-heading">
+        <p class="section-kicker">04 / Background</p>
+        <h2 class="section-title">Education & credentials</h2>
       </div>
-      
-      <div class="col-span-3 flex flex-col gap-6">
-        
-        <!-- Modular Typographic Skills Cards (Hidden on Print for ATS Parser Compatibility) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 print:hidden">
-          
-          <!-- Card 1 -->
-          <div class="border border-neutral-200 hover:border-neutral-900 bg-white p-6 rounded-none flex flex-col justify-between relative transition-all duration-200 ease-out hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_#FF0000] group">
-            <div class="absolute top-4 right-4 font-mono text-[32px] font-extrabold text-neutral-100 group-hover:text-[#FF0000]/10 leading-none select-none tracking-tighter transition-colors duration-200 ease-out">01</div>
-            <div class="pr-8">
-              <span class="font-mono text-[9px] font-bold text-neutral-400 tracking-wider">01 // CORE</span>
-              <h3 class="text-xs font-bold uppercase tracking-wider text-[#FF0000] mt-1 mb-2">Agentic AI & LLMs</h3>
-              <p class="text-xs text-neutral-700 leading-relaxed font-sans">
-                Designing, deploying, and optimizing intelligent agents. Expert in ADK, A2A, LangChain, LlamaIndex, LangGraph, and OpenAI/Gemini/Anthropic models.
-              </p>
+      <div class="credentials-grid">
+        <div>
+          <p class="credential-group-title">Education</p>
+          <article class="credential-item">
+            <p class="credential-meta">2023<br>2024</p>
+            <div>
+              <h3 class="credential-name">M.Sc. in AI Research</h3>
+              <p class="credential-source">UNED</p>
             </div>
-          </div>
-          
-          <!-- Card 2 -->
-          <div class="border border-neutral-200 hover:border-neutral-900 bg-white p-6 rounded-none flex flex-col justify-between relative transition-all duration-200 ease-out hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_#FF0000] group">
-            <div class="absolute top-4 right-4 font-mono text-[32px] font-extrabold text-neutral-100 group-hover:text-[#FF0000]/10 leading-none select-none tracking-tighter transition-colors duration-200 ease-out">02</div>
-            <div class="pr-8">
-              <span class="font-mono text-[9px] font-bold text-neutral-400 tracking-wider">02 // DATA SCIENCE</span>
-              <h3 class="text-xs font-bold uppercase tracking-wider text-[#FF0000] mt-1 mb-2">NLP & Machine Learning</h3>
-              <p class="text-xs text-neutral-700 leading-relaxed font-sans">
-                Python-driven RAG pipelines, semantic search, embeddings, text classification, and NER. Stack: Scikit-Learn, TensorFlow, Keras, XGBoost, SHAP, and Pandas.
-              </p>
+          </article>
+          <article class="credential-item">
+            <p class="credential-meta">2018<br>2023</p>
+            <div>
+              <h3 class="credential-name">B.Sc. in Computer Science & Engineering</h3>
+              <p class="credential-source">Universidad Carlos III de Madrid</p>
             </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="border border-neutral-200 hover:border-neutral-900 bg-white p-6 rounded-none flex flex-col justify-between relative transition-all duration-200 ease-out hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_#FF0000] group">
-            <div class="absolute top-4 right-4 font-mono text-[32px] font-extrabold text-neutral-100 group-hover:text-[#FF0000]/10 leading-none select-none tracking-tighter transition-colors duration-200 ease-out">03</div>
-            <div class="pr-8">
-              <span class="font-mono text-[9px] font-bold text-neutral-400 tracking-wider">03 // CLOUD & OPS</span>
-              <h3 class="text-xs font-bold uppercase tracking-wider text-[#FF0000] mt-1 mb-2">GCP & AI Observability</h3>
-              <p class="text-xs text-neutral-700 leading-relaxed font-sans">
-                Google Cloud Ecosystem (Agent Platform, Agent Engine, Agent Runtime, Cloud Run, BigQuery, GCS). Monitoring with Langfuse, evaluation via DeepEval, and CI/CD.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="border border-neutral-200 hover:border-neutral-900 bg-white p-6 rounded-none flex flex-col justify-between relative transition-all duration-200 ease-out hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_#FF0000] group">
-            <div class="absolute top-4 right-4 font-mono text-[32px] font-extrabold text-neutral-100 group-hover:text-[#FF0000]/10 leading-none select-none tracking-tighter transition-colors duration-200 ease-out">04</div>
-            <div class="pr-8">
-              <span class="font-mono text-[9px] font-bold text-neutral-400 tracking-wider">04 // OUTREACH</span>
-              <h3 class="text-xs font-bold uppercase tracking-wider text-[#FF0000] mt-1 mb-2">Training & Enablement</h3>
-              <p class="text-xs text-neutral-700 leading-relaxed font-sans">
-                Specialized in delivering training sessions and workshops on AI aspects tailored for both technical engineering teams and general business users.
-              </p>
-            </div>
-          </div>
-
+          </article>
         </div>
-        
-        <!-- Searchable keywords block (Re-styled as flat normal text in print for ATS) -->
-        <div class="p-4 bg-neutral-100/50 border border-neutral-200 font-mono text-[10px] text-neutral-500 leading-relaxed mt-8 print:mt-6 print:bg-transparent print:border-none print:p-0 print:font-sans print:text-neutral-700">
-          <span class="font-sans font-bold text-neutral-900 text-xs block mb-1">Search Index / Keywords:</span>
-          Python, LLMs (OpenAI, Gemini Enterprise, Anthropic), Google Cloud Agentic AI & RAG Ecosystem (Agent Platform, Agent Engine, Agent Runtime, ADK, A2A, Gemini, Cloud Run, BigQuery, GCS), Agent Frameworks (LangChain, LlamaIndex, LangGraph), NLP & Search (RAG, Embeddings, Semantic Search, TF-IDF, Text Classification, NER), Machine Learning (Scikit-Learn, TensorFlow, Keras, XGBoost, SHAP, Pandas), AI Ops & Observability (Langfuse, DeepEval, CI/CD, GitHub), Prototyping (Streamlit), AI Training & Enablement (Technical Workshops, General AI Literacy, Effective Technical Communication).
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Education & Credentials Section -->
-    <section class="print-section grid grid-cols-1 sm:grid-cols-4 gap-y-6 sm:gap-x-8 pt-8 border-t border-neutral-200">
-      <div class="col-span-1">
-        <h2 class="text-xs font-extrabold uppercase tracking-widest text-neutral-950">
-          <span class="print:hidden">04 <span class="text-[#FF0000] font-bold">/</span> </span>EDUCATION
-        </h2>
-      </div>
-      <div class="col-span-3 flex flex-col gap-6">
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-y-4 sm:gap-y-3">
-          <!-- 2024 -->
-          <div class="col-span-1 font-mono text-xs text-neutral-400 sm:text-left pt-0.5">2024</div>
-          <div class="col-span-2 text-sm text-neutral-750 pb-2 border-b border-neutral-100 sm:border-0 sm:pb-0">
-            <span class="font-semibold text-neutral-950">M.Sc. in Artificial Intelligence Research</span><br>
-            <span class="text-neutral-500 text-xs">UNED</span>
-          </div>
-          
-          <!-- 2023 CS -->
-          <div class="col-span-1 font-mono text-xs text-neutral-400 sm:text-left pt-0.5">2023</div>
-          <div class="col-span-2 text-sm text-neutral-700 pb-2 border-b border-neutral-100 sm:border-0 sm:pb-0">
-            <span class="font-semibold text-neutral-950">B.Sc. in Computer Science & Engineering</span><br>
-            <span class="text-neutral-500 text-xs">UC3M</span>
-          </div>
-          
-          <!-- 2023 Business -->
-          <div class="col-span-1 font-mono text-xs text-neutral-400 sm:text-left pt-0.5">2023</div>
-          <div class="col-span-2 text-sm text-neutral-700">
-            <span class="font-semibold text-neutral-950">B.Sc. in Business Administration & Management</span><br>
-            <span class="text-neutral-500 text-xs">UC3M</span>
-          </div>
-        </div>
-
-        <div class="flex flex-col gap-2 pt-6 border-t border-dashed border-neutral-200">
-          <span class="text-xs font-bold uppercase tracking-wider text-neutral-900">Certifications</span>
-          <p class="text-sm leading-relaxed text-neutral-700">
-            Google Cloud Professional ML Engineer &bull; Hugging Face AI Agents Fundamentals &bull; DeepLearning.AI Hyperparameter Tuning & Structuring ML Problems &bull; Bankinter Akademia AI
-          </p>
+        <div>
+          <p class="credential-group-title">Selected credentials</p>
+          <article class="credential-item">
+            <p class="credential-meta">Google<br>Cloud</p>
+            <div>
+              <h3 class="credential-name">Professional Machine Learning Engineer</h3>
+              <p class="credential-source">Google Cloud</p>
+            </div>
+          </article>
+          <article class="credential-item">
+            <p class="credential-meta">AI<br>Agents</p>
+            <div>
+              <h3 class="credential-name">AI Agent Fundamentals</h3>
+              <p class="credential-source">Hugging Face</p>
+            </div>
+          </article>
+          <article class="credential-item">
+            <p class="credential-meta">ML<br>Practice</p>
+            <div>
+              <h3 class="credential-name">Structuring Machine Learning Projects</h3>
+              <p class="credential-source">DeepLearning.AI</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Footer / PDF Export -->
-    <footer class="no-print flex justify-between items-center text-xs text-neutral-400 border-t border-neutral-200 pt-8 mt-4 font-mono">
-      <span>© 2026 Ricardo Prieto Álvarez</span>
-      <button id="print-btn" onclick="window.print()" class="text-neutral-500 hover:text-neutral-950 transition-colors duration-100 border-b border-neutral-300 hover:border-neutral-950 pb-0.5 focus:outline-none">
-        Print Portfolio / Save as PDF
-      </button>
-    </footer>
-    
-  </div>
+    <section class="contact container reveal" id="contact">
+      <p class="contact-eyebrow">Contact</p>
+      <h2 class="contact-heading">Available for engineering, consulting and training projects.</h2>
+      <div class="contact-row">
+        <a class="contact-email" href="mailto:ricardoprietoaiml@gmail.com">ricardoprietoaiml@gmail.com</a>
+        <div class="contact-links">
+          <a href="https://linkedin.com/in/ricardo-prieto-alvarez" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://github.com/ricardoprieto" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <span>© 2026 Ricardo Prieto Álvarez · Madrid</span>
+    <button class="print-button" type="button" onclick="window.print()">Print / Save as PDF</button>
+  </footer>
+
+  <script>
+    const revealItems = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+
+  </script>
 </body>
 </html>
-<!-- deployment trigger -->
