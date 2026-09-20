@@ -425,8 +425,8 @@
 
     .credentials-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 72px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 40px;
     }
 
     .credential-group-title {
@@ -575,7 +575,16 @@
 
       .experience-item { grid-template-columns: 1fr 1.2fr; }
       .experience-copy { grid-column: 2; }
-      .credentials-grid { gap: 40px; }
+      .credentials-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+      .credential-group--courses {
+        display: grid;
+        grid-column: 1 / -1;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 40px;
+      }
+
+      .credential-group--courses .credential-group-title { grid-column: 1 / -1; }
     }
 
     @media (max-width: 640px) {
@@ -625,6 +634,11 @@
       .focus-column:last-child { border-bottom: 0; }
       .focus-title { margin-top: 22px; }
       .credentials-grid { grid-template-columns: 1fr; }
+
+      .credential-group--courses {
+        display: block;
+        grid-column: auto;
+      }
 
       .contact-row {
         align-items: flex-start;
@@ -751,7 +765,7 @@
         </article>
 
         <article class="experience-item">
-          <p class="experience-date">2021 — 2023</p>
+          <p class="experience-date">Mar 2024 — Aug 2025</p>
           <div>
             <h3 class="experience-company">Komorebi AI</h3>
             <span class="experience-role">AI Engineer / Data Scientist</span>
@@ -792,7 +806,7 @@
         <div>
           <p class="credential-group-title">Education</p>
           <article class="credential-item">
-            <p class="credential-meta">2023<br>2024</p>
+            <p class="credential-meta">2024</p>
             <div>
               <h3 class="credential-name">M.Sc. in AI Research</h3>
               <p class="credential-source">UNED</p>
@@ -805,9 +819,16 @@
               <p class="credential-source">Universidad Carlos III de Madrid</p>
             </div>
           </article>
+          <article class="credential-item">
+            <p class="credential-meta">2018<br>2023</p>
+            <div>
+              <h3 class="credential-name">B.Sc. in Business Administration & Management</h3>
+              <p class="credential-source">Universidad Carlos III de Madrid</p>
+            </div>
+          </article>
         </div>
         <div>
-          <p class="credential-group-title">Selected credentials</p>
+          <p class="credential-group-title">Credentials & language</p>
           <article class="credential-item">
             <p class="credential-meta">Google<br>Cloud</p>
             <div>
@@ -818,15 +839,46 @@
           <article class="credential-item">
             <p class="credential-meta">AI<br>Agents</p>
             <div>
-              <h3 class="credential-name">AI Agent Fundamentals</h3>
+              <h3 class="credential-name">AI Agents Fundamentals</h3>
               <p class="credential-source">Hugging Face</p>
+            </div>
+          </article>
+          <article class="credential-item">
+            <p class="credential-meta">English<br>C1</p>
+            <div>
+              <h3 class="credential-name">Advanced English</h3>
+              <p class="credential-source">Cambridge C1</p>
+            </div>
+          </article>
+        </div>
+        <div class="credential-group--courses">
+          <p class="credential-group-title">Selected courses</p>
+          <article class="credential-item">
+            <p class="credential-meta">Deep<br>Learning</p>
+            <div>
+              <h3 class="credential-name">Improving Deep Neural Networks</h3>
+              <p class="credential-source">DeepLearning.AI</p>
             </div>
           </article>
           <article class="credential-item">
             <p class="credential-meta">ML<br>Practice</p>
             <div>
-              <h3 class="credential-name">Structuring Machine Learning Projects</h3>
+              <h3 class="credential-name">Structuring Machine Learning Problems</h3>
               <p class="credential-source">DeepLearning.AI</p>
+            </div>
+          </article>
+          <article class="credential-item">
+            <p class="credential-meta">Deep<br>Learning</p>
+            <div>
+              <h3 class="credential-name">Neural Networks and Deep Learning</h3>
+              <p class="credential-source">DeepLearning.AI</p>
+            </div>
+          </article>
+          <article class="credential-item">
+            <p class="credential-meta">AI<br>Program</p>
+            <div>
+              <h3 class="credential-name">Akademia Artificial Intelligence</h3>
+              <p class="credential-source">Bankinter Foundation</p>
             </div>
           </article>
         </div>
