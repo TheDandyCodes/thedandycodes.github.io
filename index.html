@@ -190,7 +190,7 @@
     }
 
     .section {
-      padding-block: clamp(88px, 10vw, 136px);
+      padding: clamp(72px, 8vw, 104px) 0 0;
       border-top: 1px solid var(--line);
     }
 
@@ -381,26 +381,42 @@
     }
 
     .focus-grid {
+      position: relative;
       display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
       border-block: 1px solid var(--line);
     }
 
+    .focus-join {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 2;
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      background: var(--paper);
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 15px;
+      transform: translate(-50%, -50%);
+    }
+
     .focus-column {
-      min-height: 270px;
-      padding: 32px;
-      border-right: 1px solid var(--line);
+      display: grid;
+      min-height: 292px;
+      grid-template-rows: auto 92px 1fr;
+      padding: 36px;
+      background: var(--paper);
       transition: background 220ms ease;
     }
 
-    .focus-column:first-child { padding-left: 0; }
-
-    .focus-column:last-child {
-      padding-right: 0;
-      border-right: 0;
-    }
-
-    .focus-column:hover { background: rgba(255, 255, 255, 0.32); }
+    .focus-column:hover { background: rgba(255, 255, 255, 0.48); }
 
     .focus-index {
       color: var(--accent);
@@ -409,7 +425,8 @@
     }
 
     .focus-title {
-      margin-top: 40px;
+      align-self: end;
+      margin-top: 0;
       font-size: 26px;
       font-weight: 600;
       letter-spacing: -0.035em;
@@ -429,8 +446,13 @@
       gap: 40px;
     }
 
+    .credential-group {
+      display: grid;
+      grid-template-rows: 34px repeat(4, 132px);
+    }
+
     .credential-group-title {
-      margin-bottom: 24px;
+      margin: 0;
       color: var(--muted);
       font-family: var(--mono);
       font-size: 9px;
@@ -442,7 +464,9 @@
       display: grid;
       grid-template-columns: 88px 1fr;
       gap: 20px;
-      padding-block: 18px;
+      height: 100%;
+      align-content: start;
+      padding-block: 22px;
       border-top: 1px solid var(--line);
     }
 
@@ -581,10 +605,34 @@
         display: grid;
         grid-column: 1 / -1;
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: 34px repeat(2, 132px);
         column-gap: 40px;
       }
 
       .credential-group--courses .credential-group-title { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 700px) {
+      .focus-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+        background: transparent;
+      }
+
+      .focus-join { display: none; }
+
+      .focus-column,
+      .focus-column:first-child,
+      .focus-column:last-child {
+        display: block;
+        min-height: auto;
+        padding: 28px 0;
+        border-bottom: 1px solid var(--line);
+        background: transparent;
+      }
+
+      .focus-column:last-child { border-bottom: 0; }
+      .focus-title { margin-top: 22px; }
     }
 
     @media (max-width: 640px) {
@@ -609,7 +657,7 @@
         width: 82px;
         margin-bottom: 6px;
       }
-      .section { padding-block: 80px; }
+      .section { padding: 64px 0 0; }
       .section-heading { margin-bottom: 40px; }
       .about-aside br { display: none; }
 
@@ -620,24 +668,23 @@
       }
 
       .experience-copy { grid-column: auto; }
-      .focus-grid { grid-template-columns: 1fr; }
-
-      .focus-column,
-      .focus-column:first-child,
-      .focus-column:last-child {
-        min-height: auto;
-        padding: 28px 0;
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .focus-column:last-child { border-bottom: 0; }
-      .focus-title { margin-top: 22px; }
       .credentials-grid { grid-template-columns: 1fr; }
 
       .credential-group--courses {
         display: block;
         grid-column: auto;
+      }
+
+      .credential-group {
+        display: block;
+      }
+
+      .credential-group + .credential-group { margin-top: 48px; }
+      .credential-group-title { margin-bottom: 24px; }
+
+      .credential-item {
+        height: auto;
+        padding-block: 18px;
       }
 
       .contact-row {
@@ -794,6 +841,7 @@
           <h3 class="focus-title">Corporate AI Training</h3>
           <p class="focus-copy">Training for technical and business teams on practical AI adoption and advanced use cases in enterprise environments.</p>
         </article>
+        <span class="focus-join" aria-hidden="true">+</span>
       </div>
     </section>
 
@@ -803,7 +851,7 @@
         <h2 class="section-title">Education & credentials</h2>
       </div>
       <div class="credentials-grid">
-        <div>
+        <div class="credential-group">
           <p class="credential-group-title">Education</p>
           <article class="credential-item">
             <p class="credential-meta">2024</p>
@@ -827,7 +875,7 @@
             </div>
           </article>
         </div>
-        <div>
+        <div class="credential-group">
           <p class="credential-group-title">Credentials & language</p>
           <article class="credential-item">
             <p class="credential-meta">Google<br>Cloud</p>
@@ -851,7 +899,7 @@
             </div>
           </article>
         </div>
-        <div class="credential-group--courses">
+        <div class="credential-group credential-group--courses">
           <p class="credential-group-title">Selected courses</p>
           <article class="credential-item">
             <p class="credential-meta">Deep<br>Learning</p>
