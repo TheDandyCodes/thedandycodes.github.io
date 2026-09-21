@@ -190,8 +190,19 @@
     }
 
     .section {
+      position: relative;
       padding: clamp(72px, 8vw, 104px) 0 0;
-      border-top: 1px solid var(--line);
+    }
+
+    .section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--line);
+      transform-origin: left center;
     }
 
     .section-heading {
@@ -215,6 +226,7 @@
       display: grid;
       grid-template-columns: 1fr 3fr;
       gap: 32px;
+      padding-bottom: clamp(52px, 6vw, 76px);
     }
 
     .about-aside {
@@ -570,15 +582,42 @@
 
     .print-button:hover { color: var(--ink); }
 
-    .js .reveal {
-      opacity: 0;
-      transform: translateY(14px);
-      transition: opacity 620ms cubic-bezier(.2,.7,.2,1), transform 620ms cubic-bezier(.2,.7,.2,1);
+    .js .section::before {
+      transform: scaleX(0);
+      transition: transform 780ms cubic-bezier(.2,.7,.2,1);
     }
 
-    .js .reveal.is-visible {
+    .js .section.is-visible::before { transform: scaleX(1); }
+
+    .js .reveal {
       opacity: 1;
+      transform: none;
+    }
+
+    .js .program-reveal {
+      opacity: 0;
+      filter: blur(1px);
+      clip-path: inset(0 0 14% 0);
+      transform: translateY(12px);
+      transition:
+        opacity 520ms ease,
+        filter 620ms ease,
+        clip-path 680ms cubic-bezier(.2,.7,.2,1),
+        transform 680ms cubic-bezier(.2,.7,.2,1);
+      transition-delay: var(--reveal-delay, 0ms);
+    }
+
+    .js .program-reveal.is-visible {
+      opacity: 1;
+      filter: blur(0);
+      clip-path: inset(0 0 0 0);
       transform: translateY(0);
+    }
+
+    .js .section-kicker.program-reveal,
+    .js .credential-group-title.program-reveal,
+    .js .experience-date.program-reveal {
+      transform: translateY(6px);
     }
 
     @keyframes client-scroll {
@@ -708,6 +747,15 @@
         transition-duration: 0.01ms !important;
       }
 
+      .js .program-reveal {
+        opacity: 1;
+        filter: none;
+        clip-path: none;
+        transform: none;
+      }
+
+      .js .section::before { transform: none; }
+
       .client-marquee-window {
         overflow-x: auto;
         mask-image: none;
@@ -730,7 +778,15 @@
       .client-marquee-track { animation: none; }
       .client-marquee-group + .client-marquee-group { display: none; }
       .focus-column { min-height: 0; }
-      .js .reveal { opacity: 1 !important; transform: none !important; }
+      .js .reveal,
+      .js .program-reveal {
+        opacity: 1 !important;
+        filter: none !important;
+        clip-path: none !important;
+        transform: none !important;
+      }
+
+      .js .section::before { transform: none !important; }
     }
   </style>
 </head>
@@ -760,7 +816,7 @@
         <h2 class="section-title">What I do</h2>
       </div>
       <div class="about-grid">
-        <p class="about-aside">Madrid, Spain<br>AI Engineering + Training</p>
+        <p class="about-aside">Madrid, Spain<br> AI Engineering + Training</p>
         <div>
           <p class="about-lead">I develop <strong>AI agents, RAG systems and NLP solutions</strong>. At dataguru, I also design and deliver corporate training on AI in business environments.</p>
           <p class="about-note">I work with technical teams, business users and managers, adapting the level and examples to each audience.</p>
@@ -952,17 +1008,51 @@
   </footer>
 
   <script>
-    const revealItems = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
+    const sectionObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-          revealObserver.unobserve(entry.target);
+          sectionObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0, rootMargin: '0px 0px -18% 0px' });
 
-    revealItems.forEach((item) => revealObserver.observe(item));
+    document.querySelectorAll('.section').forEach((section) => sectionObserver.observe(section));
+
+    const motionSelector = [
+      '.hero-copy > .eyebrow',
+      '.hero-identity',
+      '.hero-intro',
+      '.hero-actions',
+      '.section-heading > *',
+      '.about-aside',
+      '.about-lead',
+      '.about-note',
+      '.experience-item',
+      '.focus-column',
+      '.credential-group-title',
+      '.credential-item',
+      '.contact-eyebrow',
+      '.contact-heading',
+      '.contact-row'
+    ].join(',');
+
+    const motionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          motionObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -9% 0px' });
+
+    document.querySelectorAll('.hero-copy, .section, .contact').forEach((group) => {
+      group.querySelectorAll(motionSelector).forEach((item, index) => {
+        item.classList.add('program-reveal');
+        item.style.setProperty('--reveal-delay', `${Math.min(index, 4) * 55}ms`);
+        motionObserver.observe(item);
+      });
+    });
 
   </script>
 </body>
